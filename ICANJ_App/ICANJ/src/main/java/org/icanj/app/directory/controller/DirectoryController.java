@@ -1,5 +1,7 @@
 package org.icanj.app.directory.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.icanj.app.directory.entity.Account;
 import org.icanj.app.directory.entity.Address;
 import org.icanj.app.directory.entity.Member;
@@ -18,7 +20,7 @@ public class DirectoryController {
 	private DirectoryService directoryServiceImpl;
 	
 	@RequestMapping(value= "/AddMember", method =RequestMethod.GET)
-	public String addMember(Model model){
+	public String addMember(HttpServletRequest request){
 		
 		java.util.Date myDate = new java.util.Date("10/10/2009"); 
 		java.sql.Date sqlDate = new java.sql.Date(myDate.getDate()); 
@@ -55,7 +57,9 @@ public class DirectoryController {
 		account.setMember(member);
 		
 		directoryServiceImpl.addNewAccount(account);
+		
 		/*member.setEmailAddress("robinvk6@gmail5.com");
+		 
 		
 		directoryServiceImpl.addMember(member);*/
 		
