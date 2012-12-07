@@ -16,7 +16,7 @@
 				<div class="control-group">
 					<label class="control-label" for="familyName">Family Name</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="familyName" name="familyName" placeholder="Enter Family Name" >
+						<input type="text" id="familyName" name="familyName" placeholder="Enter Family Name" >
 					</div>
 				</div>
 				<div class="control-group">
@@ -31,14 +31,14 @@
 					<label class="control-label" for="streetAddress">Street
 						Address</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="streetAddress" name="streetAddress"
+						<input  type="text" id="streetAddress" name="streetAddress"
 							placeholder="Enter Street Address">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="city">City</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="city" name="city" placeholder="Enter City">
+						<input  type="text" id="city" name="city" placeholder="Enter City">
 					</div>
 				</div>
 				<div class="control-group">
@@ -53,7 +53,13 @@
 				<div class="control-group">
 					<label class="control-label" for="country">Country</label>
 					<div class="controls">
-						<input class="input-xlarge" type="text" id="country" name="country" value="USA" placeholder="Enter Country">
+						<input  type="text" id="country" name="country" value="USA" placeholder="Enter Country">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="parkingInfo">Parking Info Details</label>
+					<div class="controls">
+						<textarea rows="5" name="parkingInfo" placeholder="Enter Parking information for church members"></textarea> 
 					</div>
 				</div>
 				<div class="form-actions">

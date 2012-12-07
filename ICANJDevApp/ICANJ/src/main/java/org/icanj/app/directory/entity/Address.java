@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -25,7 +28,8 @@ public class Address implements Serializable {
 	@Column(name = "FAMILY_ID", unique = true, nullable = false)
 	@GeneratedValue(generator = "gen")
 	@GenericGenerator(name = "gen", strategy = "foreign", parameters = @Parameter(name = "property", value = "family"))
-	private int familyId;
+
+	private long familyId;
 
 	@Column(name = "ADDRESS_STREET", nullable = false, length = 100)
 	private String streetAddress;
@@ -39,7 +43,8 @@ public class Address implements Serializable {
 	@Column(name = "ADDRESS_COUNTRY", nullable = false, length = 50)
 	private String country;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
+
 	@PrimaryKeyJoinColumn
 	private Family family;
 
@@ -64,11 +69,12 @@ public class Address implements Serializable {
 		this.family = family;
 	}
 
-	public int getFamilyId() {
+
+	public long getFamilyId() {
 		return familyId;
 	}
 
-	public void setFamilyId(int familyId) {
+	public void setFamilyId(long familyId) {
 		this.familyId = familyId;
 	}
 

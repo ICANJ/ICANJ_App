@@ -23,7 +23,9 @@ public class DirectoryServiceImpl implements DirectoryService {
 	public void addMember(HttpServletRequest request) {
 		
 		Member member = new Member();
-		member.setFamilyId(request.getParameter("familyId").to);
+
+		long familyId = Long.parseLong(request.getParameter("familyId"));
+		member.setFamilyId(familyId);
 		
 		directoryhibernateDao.addMember(member);
 
@@ -53,7 +55,20 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return directoryhibernateDao.listAddresses();
 	}
 
-	public void addFamily(Family family) {
+	public void addFamily(HttpServletRequest request) {
+				
+		Family family = new Family();
+		Address address = new Address();
+		
+		family.setFamilyName(request.getParameter("familyName"));
+		family.setHomePhoneNumber(request.getParameter("homePhoneNumber"));
+		address.setStreetAddress(request.getParameter("streetAddress"));
+		address.setCity(request.getParameter("city"));
+		address.setState(request.getParameter("state"));
+		address.setCountry(request.getParameter("country"));
+		address.setParkingDetails(request.getParameter("parkingInfo"));
+		family.setAddress(address);
+		address.setFamily(family);
 		directoryhibernateDao.addFamily(family);
 	}
 
