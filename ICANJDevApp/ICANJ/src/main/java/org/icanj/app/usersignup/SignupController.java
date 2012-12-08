@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.icanj.app.directory.service.DirectoryService;
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> Initial code push.
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
