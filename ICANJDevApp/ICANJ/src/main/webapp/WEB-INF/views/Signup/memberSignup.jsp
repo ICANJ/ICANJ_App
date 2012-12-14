@@ -1,32 +1,32 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Home</title>
-<jsp:include page="/WEB-INF/views/header.jsp">
-	<jsp:param name="name" value="sos" />
-</jsp:include>
-<script>
-	$(document).ready(function() {
-		var alertmsg = ${alert};
-		alert(alertmsg);
-		$('.alerts').alert('close');
-		$("#errorBox").hide();
-		if(alertmsg != null){
-			$("#errorBox").show();
-		}
-	});
-</script>
-<script type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Member Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <jsp:include page="/WEB-INF/views/Core/header.jsp">
+        <jsp:param name="name" value="sos" />
+    </jsp:include>
+
 </head>
 
 <body>
+    
+    <div class="row-fluid">
+		<div class="header span8 offset2"></div>
+	</div>
+    
 	<div class="container">
 	<div>
 		<div class="page-header">
 			<h1>Member Signup Page</h1>
 		</div>
 		
-		<div class="{alert.cssAlertClass}" id="errorBox">
+            <div class="${alert.cssAlertClass}" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4>Warning! :</h4>
 				${alert.message}
@@ -129,8 +129,11 @@
 					<button type="button" class="btn">Cancel</button>
 				</div>
 				</form>
-		</div>
-				
+		</div>				
 	</div>
+                            
+    <jsp:include page="/WEB-INF/views/Core/footer.jsp">
+        <jsp:param name="name" value="sos" />
+    </jsp:include>
 </body>
 </html>

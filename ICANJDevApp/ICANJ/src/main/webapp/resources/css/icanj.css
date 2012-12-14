@@ -1,0 +1,14 @@
+.jumbotron {
+  background: url(../img/icanjHeader.png);
+  background-repeat: no-repeat;
+  
+}
+.header {
+	background: url(../img/icanjHeader.png);
+	background-repeat: no-repeat;
+	height: 43px;
+}
+.mobile-header {
+	background: url(../img/icanjHeaderIPhone.png);
+	background-repeat: no-repeat;
+}
