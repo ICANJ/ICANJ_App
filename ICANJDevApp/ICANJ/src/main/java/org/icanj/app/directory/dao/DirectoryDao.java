@@ -17,5 +17,6 @@ public interface DirectoryDao {
 	public void removeMember(long memberId);
 	public Address findAddressById(long familyId);
 	public List<Address> listAddresses();
+	public Family getFamilyHomePhoneNo(String homePhoneNumber);
 	
 }

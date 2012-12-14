@@ -39,7 +39,7 @@ public class Family implements Serializable{
 	@OneToOne(fetch = FetchType.LAZY, mappedBy = "family", cascade = CascadeType.ALL)
 	private Address address;
 	
-	@Column(name="FAMILY_HOME_PHONE", length = 10)
+	@Column(name="FAMILY_HOME_PHONE", length = 10, nullable =false)
 	private String homePhoneNumber;
 	
 		
