@@ -69,5 +69,11 @@ public class DirectoryHibernateDao implements DirectoryDao {
 		Member member = getMember(memberId);		
 		hibernateTemplate.delete(member);
 	}
+	
+	@Transactional(readOnly = true)
+	public Family getFamilyHomePhoneNo(String homePhoneNumber){
+		List<Family> family = hibernateTemplate.find("from Family family where family.homePhoneNumber = ?", homePhoneNumber.trim());
+		return family.size()>0 ? family.get(0) : null;		
+	}
 
 }
