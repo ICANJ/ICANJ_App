@@ -1,27 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Home</title>
-<jsp:include page="/WEB-INF/views/header.jsp">
-	<jsp:param name="name" value="sos" />
-</jsp:include>
-<script>
-	$(document).ready(function() {
-		$("#errorBox").hide();
-		if(${message} != null){
-			$("#errorBox").show();
-		}
-	});
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Family Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <jsp:include page="/WEB-INF/views/Core/header.jsp">
+        <jsp:param name="name" value="sos" />
+    </jsp:include>
 </head>
-
 <body>
+    
+    <div class="row-fluid">
+		<div class="header span8 offset2"></div>
+	</div>
+    
 	<div class="container">
 		<div class="page-header">
 			<h1>Family Signup Page</h1>
 		</div>
 		<div class="pager">
 
-			<div class="alert alert-error" id="errorBox">
+            
+            <div class="${alert.cssAlertClass} hide" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4>Warning! :</h4>
 				${alert.message}
@@ -94,5 +98,9 @@
 			</form>
 		</div>
 	</div>
+            
+    <jsp:include page="/WEB-INF/views/Core/footer.jsp">
+        <jsp:param name="name" value="sos" />
+    </jsp:include>
 </body>
 </html>
