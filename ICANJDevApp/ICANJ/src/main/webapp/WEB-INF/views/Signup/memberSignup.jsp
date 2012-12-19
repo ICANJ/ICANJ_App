@@ -70,7 +70,7 @@
 					<h4 align="left">Enter Member Information</h4>
 				</div>
 				
-				<form class="form-horizontal" action="AddMember.html" method="get">
+				<form class="form-horizontal" action="AddMember.html" method="post">
 				<input type="hidden" name="familyId" value=${family.familyId}>
 				<table class="table table-condensed">
 				<tr>
