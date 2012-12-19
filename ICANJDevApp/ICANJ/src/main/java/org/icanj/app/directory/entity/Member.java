@@ -48,7 +48,7 @@ public class Member implements Serializable {
 	private String gender;
 	
 	
-	@Column(name="MEMBER_RELATION", length = 10)
+	@Column(name="MEMBER_RELATION", length = 30)
 	private String memberRelation;
 	
 	@Column(name="FAMILY_ID", nullable = false)

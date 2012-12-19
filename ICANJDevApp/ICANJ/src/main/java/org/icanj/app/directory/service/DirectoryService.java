@@ -14,6 +14,7 @@ import org.icanj.app.directory.entity.Member;
 public interface DirectoryService {
 	
 	public boolean addMember(HttpServletRequest request);
+	public boolean addMembers(HttpServletRequest request);
 	public boolean addFamily(HttpServletRequest request);
 	public List<Member> listMembers();
 	public List<Member> listMemberByFamily(long familyId);
