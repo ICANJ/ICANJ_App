@@ -30,13 +30,12 @@
 				
 				
 				<div class="hero-unit familyName pull-left">
-					<h1>Family Name</h1>
-					<p>Some fancy line about your family. Leave blank if you don't want anything
+					<h1>${family.familyName} & Family</h1>
 					<address class="float-right">
-					<strong>Twitter, Inc.</strong><br>
-					795 Folsom Ave, Suite 600<br>
-					San Francisco, CA 94107<br>
-					<abbr title="Phone">P:</abbr> (123) 456-7890
+					<strong>Home Address</strong><br>
+					${family.address.streetAddress}<br>
+					${family.address.city}, ${family.address.state}<br>
+					<abbr title="Phone">P:  +1</abbr> ${family.homePhoneNumber}
 				</address>
 				<a href="#addressModal" role="button" data-toggle="modal">Click to Edit Address</a>
 				</div>

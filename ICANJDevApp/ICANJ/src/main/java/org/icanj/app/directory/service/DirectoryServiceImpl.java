@@ -69,7 +69,6 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 		try {
 			if (HTTPUtils.validateParameter(request, "familyName")
-					&& HTTPUtils.validateParameter(request, "homePhoneNumber")
 					&& HTTPUtils.validateParameter(request, "streetAddress")
 					&& HTTPUtils.validateParameter(request, "city")
 					&& HTTPUtils.validateParameter(request, "state")
@@ -77,9 +76,13 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 				Family family = new Family();
 				Address address = new Address();
+				
+				String homePhone= request.getParameter("i1").trim()+
+						  request.getParameter("i2").trim()+
+						  request.getParameter("i3").trim();
 
 				family.setFamilyName(request.getParameter("familyName").trim());
-				family.setHomePhoneNumber(request.getParameter("homePhoneNumber").trim());
+				family.setHomePhoneNumber(homePhone);
 				address.setStreetAddress(request.getParameter("streetAddress").trim());
 				address.setCity(request.getParameter("city").trim());
 				address.setState(request.getParameter("state").trim());

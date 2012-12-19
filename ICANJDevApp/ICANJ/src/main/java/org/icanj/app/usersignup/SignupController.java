@@ -45,13 +45,17 @@ public class SignupController {
 		ModelMap modelMap = new ModelMap();
 
 				try {
-
-					family = directoryServiceImpl.getFamilyHomePhoneNo(request.getParameter("homePhoneNumber"));
+					String homePhone= request.getParameter("i1").trim()+
+									  request.getParameter("i2").trim()+
+									  request.getParameter("i3").trim();
+							
+							
+					family = directoryServiceImpl.getFamilyHomePhoneNo(homePhone);
 					
 					if(family == null){
 						
 						if(directoryServiceImpl.addFamily(request)){						
-							family = directoryServiceImpl.getFamilyHomePhoneNo(request.getParameter("homePhoneNumber"));
+							family = directoryServiceImpl.getFamilyHomePhoneNo(homePhone);
 							responeUrl = sucessUrl;
 							modelMap.addAttribute("family", family);
 							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_SUCESS, "Family was succesfully added to the directory"));
