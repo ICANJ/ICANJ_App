@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.icanj.app.directory.dao.DirectoryDao;
 import org.icanj.app.directory.dao.DirectoryHibernateDao;
@@ -105,6 +106,30 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 	public Family getFamilyHomePhoneNo(String homePhoneNumber) {
 		return directoryhibernateDao.getFamilyHomePhoneNo(homePhoneNumber);
+	}
+
+	@Override
+	@Transactional
+	public boolean addMembers(HttpServletRequest request) {
+		try{
+		long familyId = Long.parseLong(request.getParameter("familyId"));
+		for(int i=1; i<=5 ; i++){
+			if(HTTPUtils.validateParameter(request, "m"+i+"FirstName")&&
+			   HTTPUtils.validateParameter(request, "m"+i+"LastName")){
+			Member member = new Member();
+			member.setFamilyId(familyId);
+			member.setFirstName(request.getParameter("m"+i+"FirstName"));
+			member.setMiddleName(request.getParameter("m"+i+"MiddleName"));
+			member.setLastName(request.getParameter("m"+i+"LastName"));
+			member.setMemberRelation(request.getParameter("m"+i+"Relation"));
+			
+			directoryhibernateDao.addMember(member);
+			}
+		}
+		}catch(Exception ex){
+			logger.error(ex.getMessage());
+		}
+		return false;
 	}
 
 }
