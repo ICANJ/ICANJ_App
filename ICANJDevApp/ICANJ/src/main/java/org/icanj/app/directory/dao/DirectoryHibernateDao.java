@@ -62,7 +62,9 @@ public class DirectoryHibernateDao implements DirectoryDao {
 	@SuppressWarnings("unchecked")
 	public List<Member> listMemberByFamily(long familyId) {
 		// TODO Auto-generated method stub
-		return hibernateTemplate.find("from MEMBER where FAMILY_ID =?",familyId);
+		System.out.println(familyId);
+		List<Member> members = hibernateTemplate.find("from Member m where m.familyId = ?",familyId);
+		return members;
 	}
 
 	public void removeMember(long memberId) {

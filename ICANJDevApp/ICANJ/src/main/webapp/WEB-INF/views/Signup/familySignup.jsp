@@ -43,13 +43,15 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="homePhoneNumber">Home
-						Phone Number</label>
-					<div class="controls">
-						<input type="text" id="homePhoneNumber" name="homePhoneNumber"
-							placeholder="Enter Phone number">
-					</div>
-				</div>
+			<label class="control-label" for="homePhoneNumber">Home Phone Number</label>
+			<div class="controls">
+			<div class="form-inline">
+			<input type="text" name="i1" class="input-small" maxlength="3" size="3"> 
+			<input type="text" name="i2" class="input-small" maxlength="3" size="3">
+			<input type="text" name="i3" class="input-small" maxlength="4" size="4">
+			</div>
+			</div>
+			</div>
 				<div class="page-header">
 					<h4 align="left">Enter Address Information</h4>
 				</div>
