@@ -65,7 +65,7 @@ function createAccountModal(memberID){
 			</div>
 			
 					<div id="accountModal" class="modal hide fade">
-					<form action="createMemberAccount" method="get"> 
+					<form action="createAccount" method="POST"> 
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h3>Create Member Account</h3>

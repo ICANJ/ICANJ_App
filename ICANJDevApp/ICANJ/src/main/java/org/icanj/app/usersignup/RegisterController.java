@@ -2,15 +2,14 @@ package org.icanj.app.usersignup;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.icanj.app.directory.entity.Family;
 import org.icanj.app.directory.entity.Member;
 import org.icanj.app.directory.service.DirectoryService;
+import org.icanj.app.security.ICAAuthenticationService;
 import org.icanj.app.utils.AppConstant;
+import org.icanj.app.utils.HTTPUtils;
 import org.icanj.app.utils.JSPAlert;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/Register")
+@RequestMapping("/Public/Register")
 public class RegisterController {
 	
 	private static final Logger logger = LoggerFactory
@@ -30,12 +29,15 @@ public class RegisterController {
 	@Autowired
 	private DirectoryService directoryServiceImpl;
 	
-	@RequestMapping(value = "/index.html", method = RequestMethod.GET)
+	@Autowired
+	private ICAAuthenticationService authenticationService;
+	
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String landing(HttpServletRequest request) {
 		return "/Registration/registration";
 	}
 	
-	@RequestMapping(value = "/getPhoneNumber.html", method = RequestMethod.POST)
+	@RequestMapping(value = "/validate", method = RequestMethod.POST)
 	public ModelAndView validateHomePhone(HttpServletRequest request) {
 		Family family = new Family();
 		
@@ -78,4 +80,22 @@ public class RegisterController {
 		
 		return new ModelAndView(responeUrl, modelMap);
 	}
+	
+	@RequestMapping(value = "/createAccount", method = RequestMethod.POST)
+	public ModelAndView createAccount(HttpServletRequest request) {
+		
+		if(HTTPUtils.validateParameter(request, "memberId")&&
+		   HTTPUtils.validateParameter(request, "emailAddress")&&
+		   HTTPUtils.validateParameter(request, "password")){
+			
+			authenticationService.createMemberAccount(Long.parseLong(request.getParameter("memberId")), request.getParameter("emailAddress"), request.getParameter("password"));
+			
+		}else{
+			logger.error("Bad Incoming Request !!!");
+		}
+		
+		return null;
+		
+	}
+	
 }
