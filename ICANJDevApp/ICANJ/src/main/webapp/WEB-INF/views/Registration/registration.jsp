@@ -30,7 +30,7 @@
 			${alert.message}
 		</div>
 		
-		<form class="form-horizontal" action="getPhoneNumber.html" method="post">
+		<form class="form-horizontal" action="Register/validate" method="post">
 			<div class="control-group">
 			<label class="control-label" for="homePhoneNumber">Enter Home Phone Number </label>
 			<div class="controls">

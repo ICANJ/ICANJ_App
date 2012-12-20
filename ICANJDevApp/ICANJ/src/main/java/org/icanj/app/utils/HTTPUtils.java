@@ -15,7 +15,7 @@ public class HTTPUtils {
 
 		try {
 			String value = request.getParameter(requestParam).trim();
-			if (value != null && !value.isEmpty()) {
+			if (value != null && !"".equals(value)) {
 				return true;
 			} else {
 				logger.error(" Request Parameter "+requestParam+ " was found empty!!!!");
@@ -27,4 +27,5 @@ public class HTTPUtils {
 			return false;
 		}
 	}
+	
 }

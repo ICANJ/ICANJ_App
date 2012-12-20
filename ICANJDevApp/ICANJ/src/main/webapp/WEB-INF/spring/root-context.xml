@@ -25,7 +25,7 @@
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
     p:sessionFactory-ref="sessionFactory" />
     
-    <bean id="devdataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 	destroy-method="close" 
 	p:driverClassName="${jdbc.driverClassName.hostmonster.dev}"
 	p:url="${jdbc.databaseurl.hostmonster.dev}"
@@ -34,7 +34,7 @@
 	
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
-	<property name="dataSource" ref="devdataSource" />
+	<property name="dataSource" ref="dataSource" />
 	<property name="packagesToScan" value="org.icanj.app" />
 	<property name="hibernateProperties">
 	<props>

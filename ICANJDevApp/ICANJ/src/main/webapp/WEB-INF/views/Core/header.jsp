@@ -7,4 +7,5 @@
 <link href="/app/resources/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
 <link href="/app/resources/css/docs.css" rel="stylesheet" media="screen">
 <link href="/app/resources/css/icanj.css" rel="stylesheet" media="screen">
+<a href="/app/j_spring_security_logout" > Logout</a>
  
