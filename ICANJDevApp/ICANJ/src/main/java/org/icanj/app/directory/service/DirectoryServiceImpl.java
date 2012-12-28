@@ -125,6 +125,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 			member.setMiddleName(request.getParameter("m"+i+"MiddleName"));
 			member.setLastName(request.getParameter("m"+i+"LastName"));
 			member.setMemberRelation(request.getParameter("m"+i+"Relation"));
+			member.setInteractiveAccess(false);
 			
 			directoryhibernateDao.addMember(member);
 			}
@@ -133,6 +134,12 @@ public class DirectoryServiceImpl implements DirectoryService {
 			logger.error(ex.getMessage());
 		}
 		return false;
+	}
+
+	@Override
+	public List<Member> MemFamilyNoInteractive(long familyId) {
+		// TODO Auto-generated method stub
+		return directoryhibernateDao.MemFamilyNoInteractive(familyId);
 	}
 
 }

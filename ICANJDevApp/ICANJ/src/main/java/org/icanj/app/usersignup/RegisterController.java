@@ -55,7 +55,7 @@ public class RegisterController {
 			family = directoryServiceImpl.getFamilyHomePhoneNo(homePhone);
 			if(family != null){
 				List<Member> lMember = new ArrayList<Member>();
-				lMember = directoryServiceImpl.listMemberByFamily(family.getFamilyId());
+				lMember = directoryServiceImpl.MemFamilyNoInteractive(family.getFamilyId());
 				modelMap.addAttribute("family", family);
 				modelMap.addAttribute("members", lMember);
 				responeUrl=successUrl;
@@ -88,7 +88,9 @@ public class RegisterController {
 		   HTTPUtils.validateParameter(request, "emailAddress")&&
 		   HTTPUtils.validateParameter(request, "password")){
 			
-			authenticationService.createMemberAccount(Long.parseLong(request.getParameter("memberId")), request.getParameter("emailAddress"), request.getParameter("password"));
+			logger.info("Creating Login Account for member id: " +request.getParameter("memberId") );
+			authenticationService.createMemberAccount(Long.parseLong(request.getParameter("memberId").trim()), 
+					request.getParameter("emailAddress").trim(), request.getParameter("password").trim());
 			
 		}else{
 			logger.error("Bad Incoming Request !!!");

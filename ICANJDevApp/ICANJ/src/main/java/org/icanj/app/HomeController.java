@@ -1,5 +1,6 @@
 package org.icanj.app;
 
+import java.security.Principal;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -24,19 +25,15 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! the client locale is "+ locale.toString());
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+	public String home(ModelMap model, Principal principal) {
+
+		String name = principal.getName(); //get logged in username
+	    model.addAttribute("username", name);
+	    
+	   // logger.info("Welcome home! the client username is "+ name); 
 		return "home";
 	}
-	
+
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
  
@@ -55,8 +52,15 @@ public class HomeController {
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
  
-		return "/Login/login";
+		return "home";
  
 	}
 	
+	@RequestMapping(value="/header", method = RequestMethod.GET)
+	public String header(ModelMap model) {
+ 
+		return "/Core/header";
+ 
+	}
+
 }

@@ -18,5 +18,6 @@ public interface DirectoryDao {
 	public Address findAddressById(long familyId);
 	public List<Address> listAddresses();
 	public Family getFamilyHomePhoneNo(String homePhoneNumber);
+	public List<Member> MemFamilyNoInteractive(long familyId);
 	
 }

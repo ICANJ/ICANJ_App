@@ -54,6 +54,15 @@ public class Member implements Serializable {
 	@Column(name="FAMILY_ID", nullable = false)
 	private long familyId;
 	
+	@Column(name="INTERACTIVE_ACCESS", nullable = false)
+	private boolean interactiveAccess;
+	
+	public boolean isInteractiveAccess() {
+		return interactiveAccess;
+	}
+	public void setInteractiveAccess(boolean interactiveAccess) {
+		this.interactiveAccess = interactiveAccess;
+	}
 	public long getFamilyId() {
 		return familyId;
 	}
