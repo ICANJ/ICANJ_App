@@ -18,6 +18,7 @@ public interface DirectoryService {
 	public boolean addFamily(HttpServletRequest request);
 	public List<Member> listMembers();
 	public List<Member> listMemberByFamily(long familyId);
+	public List<Member> MemFamilyNoInteractive(long familyId);
 	public Member getMember(long memberId);
 	public void removeMember(long memberId);
 	public Address findAddressById(long familyId);

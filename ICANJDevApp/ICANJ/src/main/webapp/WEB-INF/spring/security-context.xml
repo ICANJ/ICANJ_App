@@ -6,15 +6,18 @@
 						http://www.springframework.org/schema/security
 						http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-	<http auto-config="true">
-		<intercept-url pattern="/*" access="ROLE_USER" />
-		<intercept-url pattern="/login" filters="none" />
+	<http auto-config="true" access-denied-page="/accessdenied">
+		<intercept-url pattern="/login" filters="none"/>
 		<intercept-url pattern="/Public/**" filters="none" />
-		<intercept-url pattern="/Signup/**" filters="none" />
+	<!-- 	<intercept-url pattern="/Signup/**" filters="none" /> -->
 		<intercept-url pattern="/resources/**" filters="none" />
+		<intercept-url pattern="/**" access="ROLE_USER" />
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/loginfailed" />
-		<logout logout-success-url="/logout" />
+		<logout 
+		invalidate-session="true"
+		logout-success-url="/" 
+		/>		
 	</http>
 
 	<authentication-manager>

@@ -1,5 +1,7 @@
 package org.icanj.app.security;
 
+import org.icanj.app.directory.dao.DirectoryDao;
+import org.icanj.app.directory.entity.Member;
 import org.icanj.app.directory.service.DirectoryServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,9 @@ public class ICAAuthenticationService {
 
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
+	
+	@Autowired
+	private DirectoryDao directoryhibernateDao;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -36,6 +41,11 @@ public class ICAAuthenticationService {
 		user.setAuthorities(authority);
 		authority.setUsers(user);
 		hibernateTemplate.save(user);
+		
+		Member member =  directoryhibernateDao.getMember(memberId);
+		member.setInteractiveAccess(true);
+		directoryhibernateDao.addMember(member);
+		
 		return true;
 		}
 		catch(Exception e){

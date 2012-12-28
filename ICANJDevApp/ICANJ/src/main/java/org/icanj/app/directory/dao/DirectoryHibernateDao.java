@@ -61,8 +61,7 @@ public class DirectoryHibernateDao implements DirectoryDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Member> listMemberByFamily(long familyId) {
-		// TODO Auto-generated method stub
-		System.out.println(familyId);
+		
 		List<Member> members = hibernateTemplate.find("from Member m where m.familyId = ?",familyId);
 		return members;
 	}
@@ -76,6 +75,13 @@ public class DirectoryHibernateDao implements DirectoryDao {
 	public Family getFamilyHomePhoneNo(String homePhoneNumber){
 		List<Family> family = hibernateTemplate.find("from Family family where family.homePhoneNumber = ?", homePhoneNumber.trim());
 		return family.size()>0 ? family.get(0) : null;		
+	}
+
+	@Override
+	public List<Member> MemFamilyNoInteractive(long familyId) {
+		List<Member> members = hibernateTemplate.find("from Member m where m.interactiveAccess='0' and m.familyId = ?",familyId);
+		System.out.println(members.size());
+		return members;
 	}
 
 }

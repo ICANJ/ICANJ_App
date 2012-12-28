@@ -14,12 +14,13 @@
 
 </head>
 <body>
-    
-    <div class="row-fluid">
-		<div class="header span8 offset2"></div>
-	</div>
-    
-	<div class="container">
+    <div class="container-fluid">
+      <div class="row-fluid">
+     <jsp:include page="/WEB-INF/views/sidebar.jsp">
+	<jsp:param name="name" value="sos" />
+	</jsp:include> 
+	  
+	<div class="span9">
 		<div class="page-header">
 			<h1>Family Signup Page</h1>
 		</div>
@@ -101,9 +102,11 @@
 			</form>
 		</div>
 	</div>
+	</div>
             
     <jsp:include page="/WEB-INF/views/Core/footer.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
+    </div>
 </body>
 </html>
