@@ -44,6 +44,7 @@ public class ICAAuthenticationService {
 		
 		Member member =  directoryhibernateDao.getMember(memberId);
 		member.setInteractiveAccess(true);
+		member.setEmail(emailAddress);
 		directoryhibernateDao.addMember(member);
 		
 		return true;

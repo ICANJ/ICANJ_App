@@ -11,6 +11,7 @@ import org.hibernate.annotations.Parameter;
 @Component
 @Entity
 @Table(name="MEMBER")
+@TableGenerator(name="tab", initialValue=100, allocationSize=100)
 public class Member implements Serializable {
 	
 	/**
@@ -21,7 +22,7 @@ public class Member implements Serializable {
 	
 	@Id
 	@Column(name="MEMBER_ID")
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="tab")
 	private long memberId;
 	
 	@Column(name="MEMBER_FIRST_NAME", nullable = false, length = 40)
@@ -57,6 +58,15 @@ public class Member implements Serializable {
 	@Column(name="INTERACTIVE_ACCESS", nullable = false)
 	private boolean interactiveAccess;
 	
+	@Column(name="EMAIL_ADDRESS")
+	private String email;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public boolean isInteractiveAccess() {
 		return interactiveAccess;
 	}

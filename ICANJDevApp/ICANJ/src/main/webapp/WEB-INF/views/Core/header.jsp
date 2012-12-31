@@ -40,7 +40,7 @@
               <li><a href="#contact">Contact</a></li>
               
                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a>
+              <a class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a> 
                 <ul class="dropdown-menu">
                 <li><a href="#" >Edit My Profile</a></li>
                   <li><a href="/ICANJ/j_spring_security_logout" >Logout</a></li>

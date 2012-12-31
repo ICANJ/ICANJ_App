@@ -7,6 +7,9 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -33,11 +36,34 @@ public class HomeController {
 	   // logger.info("Welcome home! the client username is "+ name); 
 		return "home";
 	}
+	
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String home2(ModelMap model, Principal principal) {
+
+		String name = principal.getName(); //get logged in username
+	    model.addAttribute("username", name);
+	    
+	   // logger.info("Welcome home! the client username is "+ name); 
+		return "home";
+	}
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
-	public String login(ModelMap model) {
- 
+	public String login(ModelMap model, Principal principal) {
+		if(principal != null){
+		return "/";	
+		}else{	
 		return "/Login/login";
+	    }
+ 
+	}
+	
+	@RequestMapping(value="/login/", method = RequestMethod.GET)
+	public String login2(ModelMap model, Principal principal) {
+		if(principal != null){
+		return "/";	
+		}else{	
+		return "/Login/login";
+	    }
  
 	}
 	
@@ -62,5 +88,17 @@ public class HomeController {
 		return "/Core/header";
  
 	}
+	
+	@RequestMapping(value="/accessdenied", method = RequestMethod.GET)
+	public String accessDenied(ModelMap model) {
+ 		return "Core/403";
+ 
+	}
+	
+	@RequestMapping(value="/errors/404.html")
+    public String handle404() {
+    	return "Core/404";
+    }
 
 }
+;

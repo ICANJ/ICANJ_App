@@ -8,15 +8,15 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<jsp:include page="/WEB-INF/views/Core/header.jsp">
+<jsp:include page="/WEB-INF/views/Core/anonHeader.jsp">
 	<jsp:param name="name" value="sos" />
 </jsp:include>
-  <script type="text/javascript"> 
-    $(document).ready(function(){ 
-     
-      $(".errorBox").alert();
-    });
-  </script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".errorBox").alert();
+	});
+</script>
 </head>
 <body>
 
@@ -29,27 +29,33 @@
 			<h4>Warning! :</h4>
 			${alert.message}
 		</div>
-		
-		<form class="form-horizontal" action="Register/validate" method="post">
+
+		<form class="form-horizontal" action="validate" method="post">
 			<div class="control-group">
-			<label class="control-label" for="homePhoneNumber">Enter Home Phone Number </label>
-			<div class="controls">
-			<div class="form-inline">
-			<input type="text" name="i1" class="input-small" maxlength="3" size="3"> 
-			<input type="text" name="i2" class="input-small" maxlength="3" size="3">
-			<input type="text" name="i3" class="input-small" maxlength="4" size="4">
+				<label class="control-label" for="homePhoneNumber">Enter
+					Home Phone Number </label>
+				<div class="controls">
+					<div class="form-inline">
+						<input type="text" name="i1" class="input-small" maxlength="3"
+							size="3"> <input type="text" name="i2"
+							class="input-small" maxlength="3" size="3"> <input
+							type="text" name="i3" class="input-small" maxlength="4" size="4">
+					</div>
+				</div>
 			</div>
-			</div>
-			</div>
-			
+
 			<div class="control-group">
-    		<div class="controls">
-			<button type="submit" class="btn btn-primary">Next</button>
-			</div>
+				
+					
+							<div class="modal-footer">
+			<button type="submit" class="btn">Next</button>
+			<a href="/ICANJ/" type="button" class="btn btn-primary">Login</a>
+		</div>
+
 			</div>
 		</form>
 	</div>
-	<jsp:include page="/WEB-INF/views/Core/footer.jsp">
+	<jsp:include page="/WEB-INF/views/Core/anonFooter.jsp">
 		<jsp:param name="name" value="sos" />
 	</jsp:include>
 </body>

@@ -50,31 +50,22 @@ body {
 	media="screen">
 
 </head>
-
 <body>
-
-	<div class="container">
-
-		<form class="form-signin" action="j_spring_security_check"
-			method="post">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<input type="text" class="input-block-level" name="j_username"
-				placeholder="Email address"> <input type="password"
-				class="input-block-level" name="j_password" placeholder="Password">
-			<label class="checkbox"> <input type="checkbox"
-				value="remember-me"> Remember me
-			</label>
-			<button class="btn btn-large btn-primary" type="submit">Sign
-				in</button>
-			<span class="help-block"><a href="#"><i>forgot
-						password ?</i></a> | <a href="/ICANJ/Public/Register/"><i>Register</i></a></span>
-		</form>
-
-	</div>
-	<!-- /container -->
+	<div class="container-fluid">
+		<div class="row-fluid">
+			
+			<div class="span9">
+			<div class="page-header">
+			<h1>Error 404: That's an error. </h1>
+			</div>
+			<p>The requested URL /404 was not found on this server. That's all we know.</p>
+			<a href="/ICANJ/" type="button" class="btn btn-info" >Click to go back to HomePage.</a>
+			</div>
+		</div>
+		<!-- /container -->
 	<script type="text/javascript" src="/ICANJ/resources/js/jquery.js"></script>
 	<script type="text/javascript" src="/ICANJ/resources/js/bootstrap.js"></script>
 	<script type="text/javascript" src="/ICANJ/resources/js/icanj.js"></script>
+	</div>
 </body>
-
 </html>

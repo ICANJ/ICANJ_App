@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="USERS")
+@Table(name="users")
 public class Users implements Serializable{
 
 	
