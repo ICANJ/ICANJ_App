@@ -1,3 +1,9 @@
+/************************************************************************
+ * 
+ * Copyright 2012 - ICANJ
+ * 
+ ************************************************************************/
+
 package org.icanj.app.usersignup;
 
 import javax.servlet.http.HttpServletRequest;
