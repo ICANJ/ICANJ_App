@@ -35,12 +35,7 @@ public class HomeController {
 
 		String name = principal.getName(); //get logged in username
 	    model.addAttribute("username", name);
-	    
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		Collection<GrantedAuthority> ls = auth.getAuthorities();
-		for(GrantedAuthority authority: ls){
-			System.out.println(authority.toString());
-		}
+	    	    
 	    return "home";
 	}
 	
