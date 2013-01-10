@@ -84,6 +84,12 @@ public class RegisterController {
 	@RequestMapping(value = "/createAccount", method = RequestMethod.POST)
 	public ModelAndView createAccount(HttpServletRequest request) {
 		
+		ModelMap modelMap = new ModelMap();
+		String message ="";
+		String responeUrl ="";
+		String failUrl ="/Registration/registration";
+		String successUrl ="/Registration/selectAccount";
+		
 		if(HTTPUtils.validateParameter(request, "memberId")&&
 		   HTTPUtils.validateParameter(request, "emailAddress")&&
 		   HTTPUtils.validateParameter(request, "password")){
@@ -92,11 +98,24 @@ public class RegisterController {
 			authenticationService.createMemberAccount(Long.parseLong(request.getParameter("memberId").trim()), 
 					request.getParameter("emailAddress").trim(), request.getParameter("password").trim());
 			
+			long memberId = Long.parseLong(request.getParameter("memberId"));
+			Member m= directoryServiceImpl.getMember(memberId);
+			List<Member> lMember = new ArrayList<Member>();
+			lMember = directoryServiceImpl.MemFamilyNoInteractive(m.getFamilyId());
+			Family family = directoryServiceImpl.getFamily(m.getFamilyId());
+			modelMap.addAttribute("family", family);
+			modelMap.addAttribute("members", lMember);
+			responeUrl=successUrl;
+			
+			
 		}else{
 			logger.error("Bad Incoming Request !!!");
+			message = "Bad Incoming Request !!!";
+			responeUrl = failUrl;
+			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE,AppConstant.CSS_ALERT_ERROR, message));
 		}
 		
-		return null;
+		return new ModelAndView(responeUrl, modelMap);
 		
 	}
 	

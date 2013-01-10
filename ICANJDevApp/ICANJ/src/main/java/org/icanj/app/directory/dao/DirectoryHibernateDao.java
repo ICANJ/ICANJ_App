@@ -14,6 +14,7 @@ import org.icanj.app.HomeController;
 import org.icanj.app.directory.entity.Address;
 import org.icanj.app.directory.entity.Family;
 import org.icanj.app.directory.entity.Member;
+import org.icanj.app.security.Users;
 
 @Repository
 public class DirectoryHibernateDao implements DirectoryDao {
@@ -34,7 +35,7 @@ public class DirectoryHibernateDao implements DirectoryDao {
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	public List<Member> listMembers() {
-		return hibernateTemplate.find("from MEMBER");
+		return hibernateTemplate.find("from Member");
 	}
 
 	@Transactional(readOnly = true)
@@ -80,8 +81,24 @@ public class DirectoryHibernateDao implements DirectoryDao {
 	@Override
 	public List<Member> MemFamilyNoInteractive(long familyId) {
 		List<Member> members = hibernateTemplate.find("from Member m where m.interactiveAccess='0' and m.familyId = ?",familyId);
-		System.out.println(members.size());
 		return members;
+	}
+
+	@Override
+	public Family getFamily(long familyId) {		
+		return hibernateTemplate.get(Family.class, familyId);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Family> listFamilies() {
+		return hibernateTemplate.find("from Family");
+	}
+
+	@Override
+	public Member getMemberFromPrincipal(String principal) {
+		List<Users> user = hibernateTemplate.find("from Users u where u.username = ?",principal);
+		return user.size()>0 ? getMember(user.get(0).getMemberId()) : null;
 	}
 
 }

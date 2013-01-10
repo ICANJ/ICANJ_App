@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="USERS")
+@Table(name="users")
 public class Users implements Serializable{
 
 	
@@ -24,7 +24,7 @@ public class Users implements Serializable{
 	private static final long serialVersionUID = -6597931301125404888L;
 
 	
-	@Column(name="MEMBER_ID")
+	@Column(name="MEMBER_ID",unique=true)
 	private long memberId;
 	
 	@Id

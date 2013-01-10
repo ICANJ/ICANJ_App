@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="AUTHORITIES")
+@Table(name="authorities")
 public class Authorities implements Serializable{
 	
 	/**

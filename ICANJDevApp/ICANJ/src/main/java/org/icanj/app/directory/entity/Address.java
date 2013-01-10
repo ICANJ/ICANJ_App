@@ -42,6 +42,17 @@ public class Address implements Serializable {
 
 	@Column(name = "ADDRESS_COUNTRY", nullable = false, length = 50)
 	private String country;
+	
+	@Column(name = "ADDRESS_ZIP", length = 10)
+	private String zip;
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
+	}
 
 	@OneToOne(fetch = FetchType.LAZY)
 

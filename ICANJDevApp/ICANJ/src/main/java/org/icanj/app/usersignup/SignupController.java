@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/Signup")
+@RequestMapping("/Admin/Signup")
 public class SignupController {
 
 	private static final Logger logger = LoggerFactory

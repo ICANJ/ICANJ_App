@@ -42,8 +42,19 @@ public class Family implements Serializable{
 	@Column(name="FAMILY_HOME_PHONE", length = 10, nullable =false)
 	private String homePhoneNumber;
 	
+	@Column(name="FAMILY_TAGLINE", length = 200)
+	private String tagLine;
+	
 		
 	
+	public String getTagLine() {
+		return tagLine;
+	}
+
+	public void setTagLine(String tagLine) {
+		this.tagLine = tagLine;
+	}
+
 	public String getHomePhoneNumber() {
 		return homePhoneNumber;
 	}
