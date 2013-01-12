@@ -64,20 +64,20 @@ public class SignupController {
 							family = directoryServiceImpl.getFamilyHomePhoneNo(homePhone);
 							responeUrl = sucessUrl;
 							modelMap.addAttribute("family", family);
-							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE, "Family was succesfully added to the directory"));
+							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_SUCESS, "Family was succesfully added to the directory"));
 						}
 						else{
 							
 							message = "There was an error saving the below family details. Please validate the data and try submitting again.";
 							responeUrl = failUrl;
-							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE, message));	
+							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE,AppConstant.CSS_ALERT_ERROR, message));	
 						}
 					}
 					else{	
 							modelMap.addAttribute("family", family);
 							message = "A family with this phone number already exists. Family Id: " + family.getFamilyId() + " Family Name : " + family.getFamilyName() + " & Family";
-							responeUrl = failUrl;
-							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE, message));	
+							responeUrl = sucessUrl;
+							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE,AppConstant.CSS_ALERT_ERROR, message));	
 					}
 					
 					return new ModelAndView(responeUrl, modelMap);
@@ -85,7 +85,7 @@ public class SignupController {
 					logger.error("Exception : " + e);
 					message = "There was an error saving the below family details. Please validate the data and try submitting again.";
 					responeUrl = failUrl;
-					modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE, message));
+					modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE,AppConstant.CSS_ALERT_ERROR, message));
 					return new ModelAndView(responeUrl, modelMap);
 				}
 	}

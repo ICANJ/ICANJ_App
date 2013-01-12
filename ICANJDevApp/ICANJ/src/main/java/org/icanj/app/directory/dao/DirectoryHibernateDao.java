@@ -20,6 +20,7 @@ import org.icanj.app.HomeController;
 import org.icanj.app.directory.entity.Address;
 import org.icanj.app.directory.entity.Family;
 import org.icanj.app.directory.entity.Member;
+import org.icanj.app.security.Users;
 
 @Repository
 public class DirectoryHibernateDao implements DirectoryDao {
@@ -98,6 +99,12 @@ public class DirectoryHibernateDao implements DirectoryDao {
 	@Override
 	public List<Family> listFamilies() {
 		return hibernateTemplate.find("from Family");
+	}
+
+	@Override
+	public Member getMemberFromPrincipal(String principal) {
+		List<Users> user = hibernateTemplate.find("from Users u where u.username = ?",principal);
+		return user.size()>0 ? getMember(user.get(0).getMemberId()) : null;
 	}
 
 }

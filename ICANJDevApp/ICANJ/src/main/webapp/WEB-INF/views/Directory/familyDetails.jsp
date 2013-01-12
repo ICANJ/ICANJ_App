@@ -22,7 +22,7 @@
 						${family.address.state}<br> <abbr title="Phone">P:</abbr>
 						+1${family.homePhoneNumber}
 					</address>
-				<p>Parking Info: ${family.address.parkingDetails}	
+				<p>Parking Info: ${family.address.parkingDetails}	</p>
 				</div>
 
 				<table class="table table-hover">

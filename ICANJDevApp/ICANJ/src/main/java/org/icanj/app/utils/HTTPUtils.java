@@ -23,13 +23,13 @@ public class HTTPUtils {
 			String value = request.getParameter(requestParam).trim();
 			if (value != null && !"".equals(value)) {
 				return true;
-			} else {
-				logger.error(" Request Parameter "+requestParam+ " was found empty!!!!");
-				 throw new IllegalArgumentException(requestParam + " : Illegal Argument");
-							}
-		} catch (NullPointerException e) {
-			logger.error(e + " Request was found empty!!!!");
-			
+			} else{
+				logger.error(requestParam +" is an Illegal Argument.");
+				return false;
+			}
+		
+		} catch (Exception e) {
+			logger.error(requestParam +" is an Illegal Argument.");
 			return false;
 		}
 	}

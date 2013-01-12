@@ -22,6 +22,7 @@ public interface DirectoryService {
 	public boolean addMember(HttpServletRequest request);
 	public boolean addMembers(HttpServletRequest request);
 	public boolean addFamily(HttpServletRequest request);
+	public boolean updateFamily(HttpServletRequest request) throws Exception;
 	public List<Member> listMembers();
 	public List<Family> listFamilies();
 	public List<Member> listMemberByFamily(long familyId);
@@ -32,5 +33,5 @@ public interface DirectoryService {
 	public Address findAddressById(long familyId);
 	public List<Address> listAddresses();
 	public Family getFamilyHomePhoneNo(String homePhoneNumber);
-	
+	public Member getMemberFromPrincipal(String principal);
 }

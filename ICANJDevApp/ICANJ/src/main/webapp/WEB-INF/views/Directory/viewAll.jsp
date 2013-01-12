@@ -22,8 +22,8 @@ function getFamilyInfo(familyId){
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 
-
 			<div class="span9">
+			
 				<form action="getMembers" method="post">
 				<input id="setFamilyId" name="familyId" type="hidden">
 					<h3>ICANJ Family Directory</h3>

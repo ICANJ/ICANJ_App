@@ -27,5 +27,5 @@ public interface DirectoryDao {
 	public Family getFamilyHomePhoneNo(String homePhoneNumber);
 	public List<Member> MemFamilyNoInteractive(long familyId);
 	public List<Family> listFamilies();
-	
+	public Member getMemberFromPrincipal(String principal);
 }

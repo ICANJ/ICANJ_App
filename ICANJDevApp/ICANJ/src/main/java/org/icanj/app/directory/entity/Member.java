@@ -17,7 +17,7 @@ import org.hibernate.annotations.Parameter;
 @Component
 @Entity
 @Table(name="MEMBER")
-@TableGenerator(name="tab", initialValue=100, allocationSize=100)
+@TableGenerator(name="tab", initialValue=50, allocationSize=10)
 public class Member implements Serializable {
 	
 	/**
@@ -152,8 +152,4 @@ public class Member implements Serializable {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	
-	
-
 }

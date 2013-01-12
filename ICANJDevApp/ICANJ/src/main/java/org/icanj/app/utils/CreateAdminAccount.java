@@ -44,25 +44,21 @@ public class CreateAdminAccount {
 		
 		try{
 			
-		for(int i=1 ;i<=3;i++){	
 		Users user = new Users();
 		Authorities authority = new Authorities();
 		
 		//Encoding Password
 		String encodedPassword = passwordEncoder.encodePassword("icanj123", null);
-		user.setUsername("admin"+ i + "@icanj.org");
+		user.setUsername("admin"+ "@icanj.org");
 		user.setEnabled("TRUE");
-		user.setMemberId(i);
+		user.setMemberId(0);
 		user.setPassword(encodedPassword);
-		authority.setAuthority("ROLE_USER");
+		authority.setAuthority("ROLE_ADMIN");
 		user.setAuthorities(authority);
 		authority.setUsers(user);
 		hibernateTemplate.save(user);
 		
 		logger.info("Created Admin Account :" + user.getUsername() );
-		}
-
-		
 		}
 		catch(Exception e){
 			logger.error(e.toString());

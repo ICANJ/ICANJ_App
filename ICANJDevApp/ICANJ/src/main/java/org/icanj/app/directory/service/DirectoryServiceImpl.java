@@ -160,4 +160,49 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return directoryhibernateDao.listFamilies();
 	}
 
+	@Override
+	public Member getMemberFromPrincipal(String principal) {
+		
+		return directoryhibernateDao.getMemberFromPrincipal(principal);
+	}
+
+	@Override
+	public boolean updateFamily(HttpServletRequest request) throws Exception{
+		
+		
+		if (HTTPUtils.validateParameter(request, "familyName")
+				&& HTTPUtils.validateParameter(request, "familyId")
+				&& HTTPUtils.validateParameter(request, "street")
+				&& HTTPUtils.validateParameter(request, "city")
+				&& HTTPUtils.validateParameter(request, "state")
+				&& HTTPUtils.validateParameter(request, "zip")
+				&& HTTPUtils.validateParameter(request, "homePhoneNumber")){
+			
+			String familyId= request.getParameter("familyId");
+			Family family = directoryhibernateDao.getFamily(Long.parseLong(familyId));			
+			Address address = directoryhibernateDao.findAddressById(Long.parseLong(familyId));
+			
+			family.setFamilyName(request.getParameter("familyName").trim());
+			family.setHomePhoneNumber(request.getParameter("homePhoneNumber").trim());
+			family.setTagLine(request.getParameter("familyTagLine").trim());
+			address.setStreetAddress(request.getParameter("street").trim());
+			address.setCity(request.getParameter("city").trim());
+			address.setState(request.getParameter("state").trim());
+			address.setZip(request.getParameter("zip").trim());
+			address.setParkingDetails(request.getParameter("parkingInfo").trim());
+			family.setAddress(address);
+			address.setFamily(family);
+			
+			//This method uses add or update hibernate function.
+			directoryhibernateDao.addFamily(family);
+			return true;
+			
+		}else{
+			return false;
+		}
+		
+		
+		
+		
+	}
 }

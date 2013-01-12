@@ -10,6 +10,7 @@ public class JSPAlert {
 	
 	private int code;
 	private String message;
+	private String cssAlertClass;
 	
 	public int getCode() {
 		return code;
@@ -24,8 +25,20 @@ public class JSPAlert {
 		this.message = message;
 	}
 	
-	public JSPAlert(int code,String message){
+	public JSPAlert(int code,String cssAlertMsg,String message){
 		this.code=code;
+		this.cssAlertClass = cssAlertMsg;
 		this.message=message;
+	}
+	
+	public JSPAlert(String cssAlertMsg,String message){
+		this.cssAlertClass = cssAlertMsg;
+		this.message=message;
+	}
+	public String getCssAlertClass() {
+		return cssAlertClass;
+	}
+	public void setCssAlertClass(String cssAlertClass) {
+		this.cssAlertClass = cssAlertClass;
 	}
 }
