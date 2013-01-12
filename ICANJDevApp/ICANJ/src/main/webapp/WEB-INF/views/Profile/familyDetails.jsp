@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,11 +23,11 @@
 			</jsp:include>
 
 			<div class="span9">
-			<h3>My Contact Information</h3>
+			<h3>My Family Profile</h3>
 				<div class="alert alert-success">${message}</div>
-				<form class="form-horizontal span6 offset3" action="UpdateFamily" method="post">
-			
-					<div class="hero-unit" align="left">
+				
+				<form action="UpdateFamily" method="post">
+				<div class="hero-unit familyName pull-left">
 						<h2>${family.familyName} & Family</h2>
 						<address class="float-right">
 							<strong>Home Address</strong><br>
@@ -38,7 +39,26 @@
 						<a href="#addressModal" role="button" data-toggle="modal">Click
 							to Edit Address</a>
 					</div>
+					
+					<table class="table table-hover">
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email Address</th>
+					<th>Cell Phone</th>
+					<th>Work Phone</th>
+					
+					<th></th>
+					<c:forEach items="${members}" var="member">
+						<tr>
+							<td>${member.firstName}</td>
+							<td>${member.lastName}</td>
+							<td>${member.email}</td>
+							<td>${member.cellPhoneNumber}</td>
+							<td>${member.workPhoneNumber}</td>
+						</tr>
+					</c:forEach>
 
+				</table>
 
 
 					<div id="addressModal" class="modal hide fade">

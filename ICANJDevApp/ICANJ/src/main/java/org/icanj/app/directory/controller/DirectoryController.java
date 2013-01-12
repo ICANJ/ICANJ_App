@@ -71,9 +71,9 @@ public class DirectoryController {
 		Member m = directoryServiceImpl.getMemberFromPrincipal(userName);
 		long fId= m.getFamilyId();
 		
-		//members = directoryServiceImpl.listMemberByFamily(fId);
+		members = directoryServiceImpl.listMemberByFamily(fId);
 		family = directoryServiceImpl.getFamily(fId);
-		//model.addAttribute("members", members);
+		model.addAttribute("members", members);
 		model.addAttribute("family", family);
 		return "/Profile/familyDetails";
 		}

@@ -21,8 +21,7 @@ for(GrantedAuthority authority: ls){
               <li class="nav-header">Directory</li>
               <li class="active"><a href="#">Search</a></li>
               <li class="" ><a href="/ICANJ/Directory/Families">View All Members</a></li>
-              <li><a href="/ICANJ/Directory/ContactInfo">My Contact Info</a></li>
-              <li><a href="/ICANJ/Directory/Families">My Family Profile</a></li>
+              <li><a href="/ICANJ/Directory/ContactInfo">My Family Profile</a></li>
               <li class="nav-header">Pledges & Donations</li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>

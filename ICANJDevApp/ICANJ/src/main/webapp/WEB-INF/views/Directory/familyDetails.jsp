@@ -51,6 +51,9 @@
 			</div>
 			
 		</div>
+		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
+			<jsp:param name="name" value="sos" />
+		</jsp:include>
 	</div>
 </body>
 </html>

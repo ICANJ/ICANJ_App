@@ -51,7 +51,7 @@ function getFamilyInfo(familyId){
 		</div>
 		<!--/row-->
 
-		<hr>
+		
 
 		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 			<jsp:param name="name" value="sos" />

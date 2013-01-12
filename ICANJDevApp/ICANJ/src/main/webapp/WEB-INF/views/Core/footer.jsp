@@ -7,5 +7,6 @@
         <script type="text/javascript" src="/ICANJ/resources/js/bootstrap.js"></script>
         <script type="text/javascript" src="/ICANJ/resources/js/icanj.js"></script>
          <footer>
+         <hr>
         <p>&copy; India Christian Assembly of New Jersey 2012</p>
       </footer>     
