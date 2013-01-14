@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<title>Family Details</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>My Family Details</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-<jsp:include page="/WEB-INF/views/Core/header.jsp">
-	<jsp:param name="name" value="sos" />
-</jsp:include>
+	<jsp:include page="/WEB-INF/views/Core/header.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
+	<script>
+	function getMemberInfo(memberId){
+		$("#memberId").attr({"value": memberId});
+	}
+	</script>
 </head>
 
 <body>
@@ -27,8 +32,10 @@
 				<div class="alert alert-success">${message}</div>
 				
 				<form action="UpdateFamily" method="post">
-				<div class="hero-unit familyName pull-left">
+					<div class="hero-unit familyName pull-left">
+						<input type="hidden" id="formPostType" name="formPostType" value="">
 						<h2>${family.familyName} & Family</h2>
+						<h4><em>${family.tagLine}</em></h4>
 						<address class="float-right">
 							<strong>Home Address</strong><br>
 							${family.address.streetAddress}<br> ${family.address.city},
@@ -36,31 +43,41 @@
 							+1${family.homePhoneNumber}
 						</address>
 						<p>Parking Info: ${family.address.parkingDetails}</p>
-						<a href="#addressModal" role="button" data-toggle="modal">Click
-							to Edit Address</a>
+						<a href="#addressModal" role="button" 
+					  		data-toggle="modal">Click to Edit Address</a>
 					</div>
-					
+				</form>
+				
+				<form action="GetMemberProfile" method="post">
+					<input type="hidden" id="memberId" name="memberId">
+					<input type="hidden" name="familyId" value="${family.familyId}">
 					<table class="table table-hover">
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email Address</th>
-					<th>Cell Phone</th>
-					<th>Work Phone</th>
-					
-					<th></th>
-					<c:forEach items="${members}" var="member">
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email Address</th>
+							<th>Cell Phone</th>
+							<th>Work Phone</th>
+							
+							<th></th>
+						</tr>
+						<c:forEach items="${members}" var="member">
 						<tr>
 							<td>${member.firstName}</td>
 							<td>${member.lastName}</td>
 							<td>${member.email}</td>
 							<td>${member.cellPhoneNumber}</td>
 							<td>${member.workPhoneNumber}</td>
+							<td> <button class="btn btn-info" 
+									onclick="getMemberInfo(${member.memberId})">Edit Detail</button></td>
+							
 						</tr>
-					</c:forEach>
+						</c:forEach>
+					</table>
+				</form>
 
-				</table>
 
-
+					<!-- Address Modal Start -->
 					<div id="addressModal" class="modal hide fade">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
@@ -68,9 +85,9 @@
 							<h3>Edit Address</h3>
 						</div>
 						<div class="modal-body">
-						<input type="hidden" name="familyId" value="${family.familyId}">
 						
-							<div class="control-group">
+						
+							<div class="control-group">							
 								<label class="control-label" for="familyName">Family
 									Name</label>
 								<div class="controls">
@@ -83,7 +100,7 @@
 									about your family.</label>
 								<div class="controls">
 									<input type="text" id="familyTagLine" name="familyTagLine"
-										placeholder="A Line About Your Family">
+										value="${family.tagLine}" placeholder="A Line About Your Family">
 								</div>
 							</div>
 
@@ -140,8 +157,9 @@
 							<button class="btn btn-primary">Save changes</button>
 						</div>
 					</div>
-
-				</form>
+					<!-- Address Modal End -->			
+					
+				
 
 			</div>
 		</div>

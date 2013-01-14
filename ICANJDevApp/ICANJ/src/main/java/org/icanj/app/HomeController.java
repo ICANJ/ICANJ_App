@@ -52,54 +52,10 @@ public class HomeController {
 	   return "home";
 	}
 
-	@RequestMapping(value="/login", method = RequestMethod.GET)
-	public String login(ModelMap model, Principal principal) {
-		if(principal != null){
-		return "/";	
-		}else{	
-		return "/Login/login";
-	    }
- 
-	}
 	
-	@RequestMapping(value="/login/", method = RequestMethod.GET)
-	public String login2(ModelMap model, Principal principal) {
-		if(principal != null){
-		return "/";	
-		}else{	
-		return "/Login/login";
-	    }
- 
-	}
 	
-	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
-	public String loginerror(ModelMap model) {
- 
-		model.addAttribute("error", "true");
-		return "/Login/login";
- 
-	}
- 
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logout(ModelMap model) {
- 
-		return "home";
- 
-	}
 	
-	@RequestMapping(value="/header", method = RequestMethod.GET)
-	public String header(ModelMap model) {
- 
-		return "/Core/header";
- 
-	}
 	
-	@RequestMapping(value="/accessdenied", method = RequestMethod.GET)
-	public String accessDenied(ModelMap model) {
- 		return "Core/403";
- 
-	}
-
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(ModelMap model, Principal principal) {
 		if(principal != null){

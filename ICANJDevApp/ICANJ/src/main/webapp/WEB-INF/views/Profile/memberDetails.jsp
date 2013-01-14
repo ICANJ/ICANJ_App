@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,23 +16,23 @@
 </head>
 
 <body>
-    
-    
-    <div class="row-fluid">
-		<div class="header span8 offset2"></div>
-	</div>
-    
-    
-	<div class="container">
-		<div class="page-header"><h1>Individual Details</h1></div>
-		<div class="pager">
-		<div class="alert alert-success">${message}</div>
-			<form class="form-horizontal span6 offset3" action="AddFamily.html">
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+		
+			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+				<jsp:param name="name" value="sos" />
+			</jsp:include>
+
+			<div class="span9">
+			<h3>Member Detail</h3>
+				<div class="alert alert-success">${message}</div>
+				<form action="UpdateMember" method="post">
 						
 				<!-- 
 				Personal Information
 				-->
-				<div class="page-header"><h4 align="left">Enter Personal Inforamtion</h4></div>				
+				<div class="page-header"><h4 align="left">Personal Information</h4></div>				
 				<div class="control-group">
 					<label class="control-label" for="prefix">Prefix</label>
 					<div class="controls" >
@@ -49,42 +50,49 @@
 					<label class="control-label" for="firstName">First Name</label>
 					<div class="controls">
 						<input  type="text" id="firstName" name="firstName"
-							placeholder="Enter First Name">
+							placeholder="Enter First Name" value="${member.firstName}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="middleName">Middle Name</label>
 					<div class="controls">
 						<input  type="text" id="middleName" name="middleName"
-							placeholder="Enter Middle Name">
+							placeholder="Enter Middle Name" value="${member.middleName}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="lastName">Last Name</label>
 					<div class="controls">
 						<input  type="text" id="lastName" name="lastName"
-							placeholder="Enter Last Name">
+							placeholder="Enter Last Name" value="${member.lastName}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="nickname">Nickname</label>
 					<div class="controls">
 						<input  type="text" id="nickname" name="nickname"
-							placeholder="Enter Nickname">
+							placeholder="Enter Nickname" value="${member.lastName}">
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label" for="phoneNumber">Phone Number</label>
+					<label class="control-label" for="cellPhoneNumber">Cell Phone Number</label>
 					<div class="controls">
 						<input  type="text" id="phoneNumber" name="phoneNumber"
-							placeholder="Enter Phone Number ">
+							placeholder="Enter Phone Number" value="${member.cellPhoneNumber}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="workPhoneNumber">Work Phone Number</label>
+					<div class="controls">
+						<input  type="text" id="phoneNumber" name="phoneNumber"
+							placeholder="Enter Phone Number" value="${member.workPhoneNumber}">
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label" for="dateOfBirth">Date of Birth</label>
 					<div class="controls">
 						<input  type="text" id="dateOfBirth" name="dateOfBirth"
-							placeholder="Enter Date of Birth">
+							placeholder="Enter Date of Birth" value="${member.dateOfBirth}">
 					</div>
 				</div>
 				<div class="control-group">
@@ -127,6 +135,7 @@
 			</form>
 		</div>
 	</div>
+</div>
 	
 	
             

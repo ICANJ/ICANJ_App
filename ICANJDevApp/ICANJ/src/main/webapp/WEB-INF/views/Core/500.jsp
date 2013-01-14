@@ -16,6 +16,7 @@
 
 			<div class="span9">
 			<div class="page-header">
+			<div class="alert alert-success">${message}</div>
 			<h1>Error 500: Content Unavailable </h1>
 			</div>
 			<p>The Content you have requested is currently unavailable. The ICANJ IT team will check the issue.</p>

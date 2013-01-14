@@ -40,8 +40,8 @@ public class DirectoryController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(DirectoryController.class);
 	
-        @RequestMapping(value= "/Families", method =RequestMethod.GET)
-	public String viewAllFamilies(ModelMap model){
+    @RequestMapping(value= "/Families", method =RequestMethod.GET)
+	public String viewAllFamilies(ModelMap model) {
 		
 		List<Family> families = directoryServiceImpl.listFamilies();
 			
@@ -62,7 +62,7 @@ public class DirectoryController {
 	}
 	
 	@RequestMapping(value= "/ContactInfo")
-	public String viewFamily(ModelMap model,Principal principal){
+	public String viewFamily(ModelMap model,Principal principal) {
 		Family family = null;
 		List<Member> members = null;
 		
@@ -86,12 +86,61 @@ public class DirectoryController {
 	
 	
 	@RequestMapping(value= "/UpdateFamily", method =RequestMethod.POST)
-	public String updateFamily(HttpServletRequest request,ModelMap model) throws Exception{
-		Family f = directoryServiceImpl.getFamily(Long.parseLong(request.getParameter("familyId")));
-		directoryServiceImpl.updateFamily(request);
-		model.addAttribute("family", f);
-		return "/Profile/familyDetails";
+	public String updateFamily(HttpServletRequest request,ModelMap model) throws Exception {
+		List<Member> members = null;
+		Family f = null;
 		
-	}	
->>>>>>> robin_Devbranch
+		try {
+			f = directoryServiceImpl.getFamily(Long.parseLong(request.getParameter("familyId")));
+			directoryServiceImpl.updateFamily(request);
+			
+			long fId= f.getFamilyId();
+			
+			members = directoryServiceImpl.listMemberByFamily(fId);
+			
+			model.addAttribute("members", members);
+			model.addAttribute("family", f);
+			return "/Profile/familyDetails";
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(),e);	
+			return "Core/500";
+		}
+	}
+	
+	@RequestMapping( value= "/GetMemberProfile", method = RequestMethod.POST )
+	public String getMemberProfile( HttpServletRequest request, ModelMap model ) throws Exception {
+		List<Member> members = null;
+		Family f = null;
+		Member m = null;
+		String memberId = "";
+			
+		try {
+			// family id won't be null because user was able to click on edit detail buttin.
+			f = directoryServiceImpl.getFamily( Long.parseLong( request.getParameter("familyId") ) );
+			// directoryServiceImpl.updateFamily( request );
+			long fId = f.getFamilyId();
+			members = directoryServiceImpl.listMemberByFamily( fId );
+			
+			// memberId can be null and need to check before passing to hibernate
+			memberId = request.getParameter( "memberId" );
+			if( memberId == null && memberId.length() < 1 ) {
+				model.addAttribute("family", f);
+				model.addAttribute("members", members);
+				model.addAttribute("message", "Member ID was not found");
+				return "/Profile/familyDetails";
+			}
+			
+			// get member details
+			m = directoryServiceImpl.getMember( Long.parseLong( memberId ) );
+			model.addAttribute( "member", m );
+			model.addAttribute( "family", f );
+			return "/Profile/memberDetails";
+			
+		} catch (Exception e) {
+			logger.error(e.getLocalizedMessage(),e);
+			model.addAttribute("message", memberId );
+			return "Core/500";
+		}
+	}
+
 }
