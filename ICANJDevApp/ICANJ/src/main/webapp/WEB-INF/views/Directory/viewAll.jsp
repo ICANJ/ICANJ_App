@@ -16,7 +16,7 @@
 <script>
 function getFamilyInfo(familyId){
 	$("#setFamilyId").attr({"value": familyId});
-	
+
 	}
 </script>
 </head>
@@ -25,40 +25,43 @@ function getFamilyInfo(familyId){
 
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 
 			<div class="span9">
-			
+
 				<form action="getMembers" method="post">
 				<input id="setFamilyId" name="familyId" type="hidden">
 					<h3>ICANJ Family Directory</h3>
-					<table class="table table-hover">
-
-						<th>Family Name</th>
-						<th></th>
-						<th></th>
-						<c:forEach items="${families}" var="family" varStatus="loop">
+					<table id="directory" class="table table-hover">
+						<thead>
 							<tr>
-
-								<td>${family.familyName} & Family</td>
-								<td>${family.address.city},${family.address.state}</td>
-								<td><button class="btn btn-info" onclick="getFamilyInfo(${family.familyId})">More Info</button></td>
+								<th>Family Name</th>
+								<th></th>
+								<th></th>
 							</tr>
-						</c:forEach>
-
+						</thead>
+						<tbody>
+							<c:forEach items="${families}" var="family" varStatus="loop">
+								<tr>
+									<td>${family.familyName} & Family</td>
+									<td>${family.address.city},${family.address.state}</td>
+									<td><button class="btn btn-info" onclick="getFamilyInfo(${family.familyId})">More Info</button></td>
+								</tr>
+							</c:forEach>
+						</tbody>
 					</table>
 				</form>
 
-				
+
 				<!-- body -->
 			</div>
 			<!--/span-->
 		</div>
 		<!--/row-->
 
-		
+
 
 		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 			<jsp:param name="name" value="sos" />

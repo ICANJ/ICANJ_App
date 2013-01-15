@@ -9,7 +9,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 			<div class="span9">
@@ -31,7 +31,7 @@
 					<th>Email Address</th>
 					<th>Cell Phone</th>
 					<th>Work Phone</th>
-					
+
 					<th></th>
 					<c:forEach items="${members}" var="member">
 						<tr>
@@ -45,11 +45,11 @@
 
 				</table>
 				<div class="modal-footer">
-					
+
 					<button class="btn btn-primary" ONCLICK="history.go(-1)">Go Back</button>
 			</div>
 			</div>
-			
+
 		</div>
 		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 			<jsp:param name="name" value="sos" />

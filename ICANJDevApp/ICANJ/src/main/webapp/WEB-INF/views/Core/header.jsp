@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : footer
     Created on : Dec 14, 2012, 10:56:37 AM
     Author     : robinvk
@@ -38,11 +38,13 @@
            	  <li class="active"><a href="/ICANJ/">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
-              
-               <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a> 
+              <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                <li><a href="#" >Edit My Profile</a></li>
+									<form id="loggedUserProfile" action="loggedUserProfile" method="post">
+										<li><a href="loggedUserProfile()" >Edit My Profile</a></li>
+										<input type="hidden" value="<%=SecurityContextHolder.getContext().getAuthentication().getDetails() %>" />
+									</form>
                   <li><a href="/ICANJ/j_spring_security_logout" >Logout</a></li>
                 </ul>
               </li>
@@ -51,4 +53,4 @@
         </div>
       </div>
     </div>
-</head> 
+</head>

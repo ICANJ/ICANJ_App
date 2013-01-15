@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <jsp:include page="/WEB-INF/views/Core/header.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
@@ -15,17 +15,17 @@
 <body>
     <div class="container-fluid">
       <div class="row-fluid">
-     <jsp:include page="/WEB-INF/views/sidebar.jsp">
-	<jsp:param name="name" value="sos" />
-	</jsp:include> 
-	  
+  <jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
+
 	<div class="span9">
 		<div class="page-header">
 			<h1>Family Signup Page</h1>
 		</div>
 		<div class="pager">
 
-            
+
             <div class="${alert.cssAlertClass} hide" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4>Warning! :</h4>
@@ -47,7 +47,7 @@
 			<label class="control-label" for="homePhoneNumber">Home Phone Number</label>
 			<div class="controls">
 			<div class="form-inline">
-			<input type="text" name="i1" class="input-small" maxlength="3" size="3"> 
+			<input type="text" name="i1" class="input-small" maxlength="3" size="3">
 			<input type="text" name="i2" class="input-small" maxlength="3" size="3">
 			<input type="text" name="i3" class="input-small" maxlength="4" size="4">
 			</div>
@@ -102,7 +102,7 @@
 		</div>
 	</div>
 	</div>
-            
+
     <jsp:include page="/WEB-INF/views/Core/footer.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>

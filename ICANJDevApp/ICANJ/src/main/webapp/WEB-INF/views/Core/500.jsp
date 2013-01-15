@@ -9,7 +9,7 @@
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 
@@ -23,5 +23,9 @@
 			</div>
 		</div>
 	</div>
+
+    <jsp:include page="/WEB-INF/views/Core/footer.jsp">
+        <jsp:param name="name" value="sos" />
+    </jsp:include>
 </body>
 </html>
