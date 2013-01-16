@@ -20,13 +20,13 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 		
-			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 
 			<div class="span9">
+            <div class="alert alert-success"><span>test</span></div>
 			<h3>Member Detail</h3>
-				<div class="alert alert-success">${message}</div>
 				<form action="UpdateMember" method="post">
 						
 				<!-- 
@@ -72,6 +72,13 @@
 					<div class="controls">
 						<input  type="text" id="nickname" name="nickname"
 							placeholder="Enter Nickname" value="${member.lastName}">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label" for="nickname">Email</label>
+					<div class="controls">
+						<input  type="text" id="nickname" name="nickname"
+							placeholder="Enter Nickname" value="${member.email}">
 					</div>
 				</div>
 				<div class="control-group">

@@ -9,9 +9,16 @@ $(document).ready(function() {
 		$('.other, .gender').hide();
 	}
 	});
-    
+
     // close alert message window
     $('.alert').alert('close');
+
+	// ICANJ directory dataTable setup
+	$('#directory').dataTable();
+
+	function loggedUserProfile() {
+		
+	}
 
 
 });

@@ -5,7 +5,7 @@
 
 <div class="span3">
 <!--  Very Bad implementation [Fix it version 2.0 -->
-<% 
+<%
 boolean status = false;
 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 Collection<GrantedAuthority> ls = auth.getAuthorities();
@@ -18,9 +18,8 @@ for(GrantedAuthority authority: ls){
 <!-- Endddd -->
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Directory</li>
-              <li class="active"><a href="#">Search</a></li>
-              <li class="" ><a href="/ICANJ/Directory/Families">View All Members</a></li>
+              <li class="nav-header">Family & Members</li>
+              <li class="active"><a href="/ICANJ/Directory/Families">Directory</a></li>
               <li><a href="/ICANJ/Directory/ContactInfo">My Family Profile</a></li>
               <li class="nav-header">Pledges & Donations</li>
               <li><a href="#">Link</a></li>

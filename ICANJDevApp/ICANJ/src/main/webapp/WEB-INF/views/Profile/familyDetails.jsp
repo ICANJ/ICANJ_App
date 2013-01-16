@@ -22,15 +22,15 @@
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
-		
-			<jsp:include page="/WEB-INF/views/sidebar.jsp">
+
+			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
 				<jsp:param name="name" value="sos" />
 			</jsp:include>
 
 			<div class="span9">
 			<h3>My Family Profile</h3>
 				<div class="alert alert-success">${message}</div>
-				
+
 				<form action="UpdateFamily" method="post">
 					<div class="hero-unit familyName pull-left">
 						<input type="hidden" id="formPostType" name="formPostType" value="">
@@ -43,11 +43,11 @@
 							+1${family.homePhoneNumber}
 						</address>
 						<p>Parking Info: ${family.address.parkingDetails}</p>
-						<a href="#addressModal" role="button" 
+						<a href="#addressModal" role="button"
 					  		data-toggle="modal">Click to Edit Address</a>
 					</div>
 				</form>
-				
+
 				<form action="GetMemberProfile" method="post">
 					<input type="hidden" id="memberId" name="memberId">
 					<input type="hidden" name="familyId" value="${family.familyId}">
@@ -58,7 +58,7 @@
 							<th>Email Address</th>
 							<th>Cell Phone</th>
 							<th>Work Phone</th>
-							
+
 							<th></th>
 						</tr>
 						<c:forEach items="${members}" var="member">
@@ -68,9 +68,9 @@
 							<td>${member.email}</td>
 							<td>${member.cellPhoneNumber}</td>
 							<td>${member.workPhoneNumber}</td>
-							<td> <button class="btn btn-info" 
+							<td> <button class="btn btn-info"
 									onclick="getMemberInfo(${member.memberId})">Edit Detail</button></td>
-							
+
 						</tr>
 						</c:forEach>
 					</table>
@@ -85,9 +85,9 @@
 							<h3>Edit Address</h3>
 						</div>
 						<div class="modal-body">
-						
-						
-							<div class="control-group">							
+
+
+							<div class="control-group">
 								<label class="control-label" for="familyName">Family
 									Name</label>
 								<div class="controls">
@@ -157,9 +157,9 @@
 							<button class="btn btn-primary">Save changes</button>
 						</div>
 					</div>
-					<!-- Address Modal End -->			
-					
-				
+					<!-- Address Modal End -->
+
+
 
 			</div>
 		</div>

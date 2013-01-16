@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <jsp:include page="/WEB-INF/views/Core/header.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
@@ -15,23 +15,23 @@
 </head>
 
 <body>
-    
-    <div class="row-fluid">
+
+  <div class="row-fluid">
 		<div class="header span8 offset2"></div>
 	</div>
-    
+
 	<div class="container">
 	<div>
 		<div class="page-header">
 			<h1>Member Signup Page</h1>
 		</div>
-		
+
             <div class="${alert.cssAlertClass}" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4>Warning! :</h4>
 				${alert.message}
 			</div>
-			
+
 		<form class="form-horizontal">
 				<div class="page-header">
 					<h4 align="left">Family Information</h4>
@@ -55,7 +55,7 @@
 						<span class="input-xlarge uneditable-input">${family.homePhoneNumber}</span>
 					</div>
 				</div>
-				
+
 				<div class="control-group">
 					<label class="control-label" for="streetAddress">Street
 						Address</label>
@@ -65,11 +65,11 @@
 				</div>
 				</form>
 		</div>
-		<div>	
+		<div>
 				<div class="page-header">
 					<h4 align="left">Enter Member Information</h4>
 				</div>
-				
+
 				<form class="form-horizontal" action="AddMember.html" method="post">
 				<input type="hidden" name="familyId" value=${family.familyId}>
 				<table class="table table-condensed">
@@ -87,9 +87,9 @@
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>
-				</td>	
+				</td>
 				</tr>
-				
+
 				<tr>
 				<td>Enter Name</td>
 				<td><input class="input-medium" type="text" id="m2FirstName" name="m2FirstName" placeholder="First Name"></td>
@@ -104,9 +104,9 @@
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>
-				</td>	
+				</td>
 				</tr>
-				
+
 				<tr>
 				<td>Enter Name</td>
 				<td><input class="input-medium" type="text" id="m3FirstName" name="m3FirstName" placeholder="First Name"></td>
@@ -121,17 +121,17 @@
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>
-				</td>	
-				</tr>								
+				</td>
+				</tr>
 				</table>
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary">Finish</button>
 					<button type="button" class="btn">Cancel</button>
 				</div>
 				</form>
-		</div>				
+		</div>
 	</div>
-                            
+
     <jsp:include page="/WEB-INF/views/Core/footer.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
