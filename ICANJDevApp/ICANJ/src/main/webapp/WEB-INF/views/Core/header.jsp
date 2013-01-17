@@ -41,11 +41,8 @@
               <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-									<form id="loggedUserProfile" action="loggedUserProfile" method="post">
-										<li><a href="loggedUserProfile()" >Edit My Profile</a></li>
-										<input type="hidden" value="<%=SecurityContextHolder.getContext().getAuthentication().getDetails() %>" />
-									</form>
-                  <li><a href="/ICANJ/j_spring_security_logout" >Logout</a></li>
+				<li><a href="/ICANJ/Directory/GetMemberProfile?personalProfile=true" >Edit My Profile</a></li>
+				<li><a href="/ICANJ/j_spring_security_logout" >Logout</a></li>
                 </ul>
               </li>
             </ul>
