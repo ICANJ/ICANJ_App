@@ -7,15 +7,15 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<link href="/ICANJ/resources/css/bootstrap.css" rel="stylesheet"
+	<link href="/resources/css/bootstrap.css" rel="stylesheet"
 		media="screen">
-	<link href="/ICANJ/resources/css/bootstrap-responsive.css"
+	<link href="/resources/css/bootstrap-responsive.css"
 		rel="stylesheet" media="screen">
-	<link href="/ICANJ/resources/css/docs.css" rel="stylesheet"
+	<link href="/resources/css/docs.css" rel="stylesheet"
 		media="screen">
-	<link href="/ICANJ/resources/css/icanj.css" rel="stylesheet"
+	<link href="/resources/css/icanj.css" rel="stylesheet"
 		media="screen">
-	<link href="/ICANJ/resources/css/login.css" rel="stylesheet"
+	<link href="/resources/css/login.css" rel="stylesheet"
 		media="screen">
 </head>
 <body>
@@ -35,15 +35,15 @@
 				in</button>
 			<span class="help-block">
 				<a href="#">Forgot	password ?</a> |
-				<a href="/ICANJ/Public/Register/">Register</a>
+				<a href="/Public/Register/">Register</a>
 			</span>
 		</form>
 
 	</div>
 	<!-- /container -->
-	<script type="text/javascript" src="/ICANJ/resources/js/jquery.js"></script>
-	<script type="text/javascript" src="/ICANJ/resources/js/bootstrap.js"></script>
-	<script type="text/javascript" src="/ICANJ/resources/js/icanj.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery.js"></script>
+	<script type="text/javascript" src="/resources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/resources/js/icanj.js"></script>
 </body>
 
 </html>

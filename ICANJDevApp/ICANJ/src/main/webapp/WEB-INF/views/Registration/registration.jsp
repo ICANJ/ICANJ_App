@@ -49,7 +49,7 @@
 					
 							<div class="modal-footer">
 			<button type="submit" class="btn">Next</button>
-			<a href="/ICANJ/" type="button" class="btn btn-primary">Login</a>
+			<a href="/" type="button" class="btn btn-primary">Login</a>
 		</div>
 
 			</div>

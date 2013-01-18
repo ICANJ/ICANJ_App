@@ -19,8 +19,8 @@ for(GrantedAuthority authority: ls){
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Family & Members</li>
-              <li class="active"><a href="/ICANJ/Directory/Families">Directory</a></li>
-              <li><a href="/ICANJ/Directory/ContactInfo">My Family Profile</a></li>
+              <li class="active"><a href="/Directory/Families">Directory</a></li>
+              <li><a href="/Directory/ContactInfo">My Family Profile</a></li>
               <li class="nav-header">Pledges & Donations</li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
@@ -31,8 +31,8 @@ for(GrantedAuthority authority: ls){
               <li><a href="#">Link</a></li>
               <%if(status) {%>
               <li class="nav-header">Admin</li>
-              <li><a href="/ICANJ/Admin/Signup/Family">Family Signup</a></li>
-              <li><a href="/ICANJ/Public/Register/">Register Accounts</a></li>
+              <li><a href="/Admin/Signup/Family">Family Signup</a></li>
+              <li><a href="/Public/Register/">Register Accounts</a></li>
               <li><a href="#">Link</a></li>
               <%} %>
             </ul>

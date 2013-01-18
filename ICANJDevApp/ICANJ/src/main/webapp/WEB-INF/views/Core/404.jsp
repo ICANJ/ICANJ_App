@@ -40,13 +40,13 @@ body {
 }
 </style>
 
-<link href="/ICANJ/resources/css/bootstrap.css" rel="stylesheet"
+<link href="/resources/css/bootstrap.css" rel="stylesheet"
 	media="screen">
-<link href="/ICANJ/resources/css/bootstrap-responsive.css"
+<link href="/resources/css/bootstrap-responsive.css"
 	rel="stylesheet" media="screen">
-<link href="/ICANJ/resources/css/docs.css" rel="stylesheet"
+<link href="/resources/css/docs.css" rel="stylesheet"
 	media="screen">
-<link href="/ICANJ/resources/css/icanj.css" rel="stylesheet"
+<link href="/resources/css/icanj.css" rel="stylesheet"
 	media="screen">
 
 </head>
@@ -59,13 +59,13 @@ body {
 			<h1>Error 404: That's an error. </h1>
 			</div>
 			<p>The requested URL /404 was not found on this server. That's all we know.</p>
-			<a href="/ICANJ/" type="button" class="btn btn-info" >Click to go back to HomePage.</a>
+			<a href="/" type="button" class="btn btn-info" >Click to go back to HomePage.</a>
 			</div>
 		</div>
 		<!-- /container -->
-	<script type="text/javascript" src="/ICANJ/resources/js/jquery.js"></script>
-	<script type="text/javascript" src="/ICANJ/resources/js/bootstrap.js"></script>
-	<script type="text/javascript" src="/ICANJ/resources/js/icanj.js"></script>
+	<script type="text/javascript" src="/resources/js/jquery.js"></script>
+	<script type="text/javascript" src="/resources/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/resources/js/icanj.js"></script>
 	</div>
 </body>
 </html>
