@@ -66,8 +66,8 @@ function createAccountModal(memberID){
 
 		</div>
 		<div class="modal-footer">
-			<a href="/ICANJ/Public/Register/" type="button" class="btn">Go Back</a>
-			<a href="/ICANJ/" type="button" class="btn btn-primary">Finish</a>
+			<a href="/Public/Register/" type="button" class="btn">Go Back</a>
+			<a href="/" type="button" class="btn btn-primary">Finish</a>
 		</div>
 
 		<div id="accountModal" class="modal hide fade">

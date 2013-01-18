@@ -10,10 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-<link href="/ICANJ/resources/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="/ICANJ/resources/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-<link href="/ICANJ/resources/css/docs.css" rel="stylesheet" media="screen">
-<link href="/ICANJ/resources/css/icanj.css" rel="stylesheet" media="screen">
+<link href="/resources/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="/resources/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+<link href="/resources/css/docs.css" rel="stylesheet" media="screen">
+<link href="/resources/css/icanj.css" rel="stylesheet" media="screen">
 <style type="text/css">
       body {
         padding-top: 60px;
@@ -32,17 +32,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/ICANJ/">India Christian Assembly</a>
+          <a class="brand" href="/">India Christian Assembly</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-           	  <li class="active"><a href="/ICANJ/">Home</a></li>
+           	  <li class="active"><a href="/">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
               <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown"><%=SecurityContextHolder.getContext().getAuthentication().getName() %> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-				<li><a href="/ICANJ/Directory/GetMemberProfile?personalProfile=true" >Edit My Profile</a></li>
-				<li><a href="/ICANJ/j_spring_security_logout" >Logout</a></li>
+				<li><a href="/Directory/GetMemberProfile?personalProfile=true" >Edit My Profile</a></li>
+				<li><a href="/j_spring_security_logout" >Logout</a></li>
                 </ul>
               </li>
             </ul>
