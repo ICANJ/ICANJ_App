@@ -18,6 +18,7 @@
 		<logout 
 		invalidate-session="true"
 		logout-success-url="/" 
+		
 		/>
 		<session-management>
 			<concurrency-control max-sessions="1"

@@ -113,5 +113,10 @@ public class HomeController {
     public String handle500() {
     	return "Core/500";
     }
+	
+	@RequestMapping(value="/favicon.ico")
+    public void favicon() {
+    	//do Nothing
+    }
 }
 ;

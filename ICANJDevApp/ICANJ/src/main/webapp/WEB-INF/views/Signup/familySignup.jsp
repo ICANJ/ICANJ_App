@@ -44,6 +44,13 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="emailAddress">Email Address</label>
+					<div class="controls">
+						<input type="text" id="emailAddress" name="emailAddress"
+							placeholder="Primary Email Address">
+					</div>
+				</div>
+				<div class="control-group">
 			<label class="control-label" for="homePhoneNumber">Home Phone Number</label>
 			<div class="controls">
 			<div class="form-inline">

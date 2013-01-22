@@ -16,11 +16,7 @@
 
 <body>
 
-  <div class="row-fluid">
-		<div class="header span8 offset2"></div>
-	</div>
-
-	<div class="container">
+  	<div class="container">
 	<div>
 		<div class="page-header">
 			<h1>Member Signup Page</h1>
