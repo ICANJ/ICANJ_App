@@ -34,12 +34,12 @@
 							<td>${item[0].fullName}</td>
 							<td>${item[1].fullName}</td>
 							<td>${items.email}</td>
-							
+
 						</tr>
 						</c:forEach>
 						</c:forEach>
-					</table>	
-		
+					</table>
+
 	</div>
 	<!-- /container -->
 	<script type="text/javascript" src="/resources/js/jquery.js"></script>

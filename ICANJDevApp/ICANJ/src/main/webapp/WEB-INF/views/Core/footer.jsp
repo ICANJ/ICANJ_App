@@ -5,8 +5,9 @@
 --%>
         <script type="text/javascript" src="/resources/js/jquery.js"></script>
         <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
-        <script type="text/javascript" src="/resources/js/icanj.js"></script>
 				<script type="text/javascript" src="/resources/js/jquery.dataTables.js"></script>
+				<script type="text/javascript" src="/resources/js/jquery.validate.js"></script>
+				<script type="text/javascript" src="/resources/js/jquery-validate.js"></script>
          <footer>
          <hr>
         <p>&copy; India Christian Assembly of New Jersey 2012</p>

@@ -11,12 +11,8 @@
 <jsp:include page="/WEB-INF/views/Core/anonHeader.jsp">
 	<jsp:param name="name" value="sos" />
 </jsp:include>
-<script type="text/javascript">
-	$(document).ready(function() {
 
-		$(".errorBox").alert();
-	});
-</script>
+
 </head>
 <body>
 
@@ -24,23 +20,24 @@
 		<div class="page-header">
 			<h1>User Registration</h1>
 		</div>
-		<div class="${alert.cssAlertClass}" id="errorBox">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<h4>Warning! :</h4>
-			${alert.message}
-		</div>
+		<c:if ${alert.message.isEmpty()} >
+			<div class="alert ${alert.cssAlertClass}" id="errorBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<strong>Warning! :</strong>
+				${alert.message}
+			</div>
+		</c:if>
 
-		<form class="form-horizontal" action="validate" method="post">
+		<form class="form-horizontal" id="registrationForm" name="registrationForm"
+					action="validate" method="post">
 			<div class="control-group">
-				<label class="control-label" for="homePhoneNumber">Enter
-					Home Phone Number </label>
+				<label class="control-label" id="reg-phone-label">Enter Phone Number </label>
 				<div class="controls">
-					<div class="form-inline">
-						<input type="text" name="i1" class="input-small" maxlength="3"
-							size="3"> <input type="text" name="i2"
-							class="input-small" maxlength="3" size="3"> <input
-							type="text" name="i3" class="input-small" maxlength="4" size="4">
-					</div>
+					<input type="text" name="phone" class="input-medium" maxlength="12"
+								 placeholder="enter phone number" size="12" data-required
+								 data-pattern="^(\([2-9]|[2-9])(\d{2}|\d{2}\))(-|.|\s)?\d{3}(-|.|\s)?\d{4}$"
+								 id="reg-phone">
+					<span class="help-block"></span>
 				</div>
 			</div>
 
@@ -58,5 +55,35 @@
 	<jsp:include page="/WEB-INF/views/Core/anonFooter.jsp">
 		<jsp:param name="name" value="sos" />
 	</jsp:include>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$(".errorBox").alert();
+
+//			$("#registrationForm").validate({
+//				rules: {
+//					phone: {
+//						required: true,
+//						phoneUS: true
+//					}
+//				}
+//			});
+
+
+			$('#registrationForm').validate({
+				onChange : true,
+				eachValidField : function() {
+					$(this).closest('div').removeClass('error').addClass('success');
+					$(this).find('.help-block').text('');
+				},
+				eachInvalidField : function() {
+					$(this).closest('div').removeClass('success').addClass('error');
+					$(this).find('.help-block').text('Incorrect value');
+				}
+			});
+
+
+		});
+	</script>
 </body>
 </html>

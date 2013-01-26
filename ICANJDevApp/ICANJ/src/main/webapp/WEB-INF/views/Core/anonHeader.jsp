@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : footer
     Created on : Dec 14, 2012, 10:56:37 AM
     Author     : robinvk
@@ -6,7 +6,7 @@
 <%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
 <head>
 <meta charset="utf-8">
-    <title>my.icanj.org</title>
+    <title>My ICANJ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -36,10 +36,10 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
            	  <li><a href="#about">About</a></li>
-             
+
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-</head> 
+</head>

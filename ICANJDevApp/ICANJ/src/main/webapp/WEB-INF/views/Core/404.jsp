@@ -53,7 +53,7 @@ body {
 <body>
 	<div class="container-fluid">
 		<div class="row-fluid">
-			
+
 			<div class="span9">
 			<div class="page-header">
 			<h1>Error 404: That's an error. </h1>
