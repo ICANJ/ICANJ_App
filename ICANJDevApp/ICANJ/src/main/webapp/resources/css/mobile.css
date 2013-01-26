@@ -1,0 +1,42 @@
+/*
+    Document   : mobile-menu
+    Created on : Jan 26, 2013, 12:33:35 AM
+    Author     : maxjerin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+@media (max-width: 979px) {
+	.btn-left-navbar {
+		float: left!important;
+	}
+
+	.menu {
+		width: 165px;
+		height: 100%;
+		display: block !important;
+		float: left;
+		padding-right: 0px!important;
+	}
+
+	.page {
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-height: 100%;
+		position: absolute;
+		border: 0;
+		min-height: 320px;
+		margin-left: 0px;
+		display: block;
+		overflow: visible;
+		margin-top: 120px;
+		z-index: 100;
+		background-color: white;
+		padding-left: 5px;
+
+	}
+
+}
+

@@ -20,12 +20,13 @@
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
 
-			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-				<jsp:param name="name" value="sos" />
-			</jsp:include>
+	<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
+	
+	<div class="container-fluid page">
+		<div class="row-fluid">
 
 			<div class="span9">
 			<h3>My Family Profile</h3>
@@ -169,5 +170,6 @@
 	<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 		<jsp:param name="name" value="sos" />
 	</jsp:include>
+	<script type="text/javascript" src="/resources/js/mobile.js"></script>
 </body>
 </html>

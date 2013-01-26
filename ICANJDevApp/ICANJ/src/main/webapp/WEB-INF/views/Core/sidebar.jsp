@@ -3,16 +3,16 @@
 <%@page import="org.springframework.security.core.context.SecurityContextHolder"%>
 <%@page import="org.springframework.security.core.Authentication"%>
 
-<div class="span3">
-<!--  Very Bad implementation [Fix it version 2.0 -->
-<%
-boolean status = false;
-Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-Collection<GrantedAuthority> ls = auth.getAuthorities();
-for(GrantedAuthority authority: ls){
-	if(authority.toString().equals("ROLE_ADMIN"))
-		status=true;
-}
+<div class="span3 menu">
+	<!--  Very Bad implementation [Fix it version 2.0 -->
+	<%
+		boolean status = false;
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Collection<GrantedAuthority> ls = auth.getAuthorities();
+		for(GrantedAuthority authority: ls){
+			if(authority.toString().equals("ROLE_ADMIN"))
+				status=true;
+		}
 
 %>
 <!-- Endddd -->

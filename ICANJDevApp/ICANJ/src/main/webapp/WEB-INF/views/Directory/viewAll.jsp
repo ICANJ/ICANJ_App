@@ -23,11 +23,12 @@ function getFamilyInfo(familyId){
 
 <body>
 
-	<div class="container-fluid">
+	<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
+
+	<div class="container-fluid page">
 		<div class="row-fluid">
-			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-				<jsp:param name="name" value="sos" />
-			</jsp:include>
 
 			<div class="span9">
 
@@ -66,6 +67,8 @@ function getFamilyInfo(familyId){
 		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 			<jsp:param name="name" value="sos" />
 		</jsp:include>
+		<script type="text/javascript" src="/resources/js/icanj.js"></script>
+		<script type="text/javascript" src="/resources/js/mobile.js"></script>
 
 	</div>
 	<!--/.fluid-container-->

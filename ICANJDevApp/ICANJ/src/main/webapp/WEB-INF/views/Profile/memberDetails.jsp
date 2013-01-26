@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    
+
     <jsp:include page="/WEB-INF/views/Core/header.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
@@ -16,23 +16,22 @@
 </head>
 
 <body>
+	<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
 
-	<div class="container-fluid">
+	<div class="container-fluid page">
 		<div class="row-fluid">
-		
-			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-				<jsp:param name="name" value="sos" />
-			</jsp:include>
 
 			<div class="span9">
             <div class="alert alert-success"><span>test</span></div>
 			<h3>Member Detail</h3>
 				<form action="UpdateMember" method="post">
-						
-				<!-- 
+
+				<!--
 				Personal Information
 				-->
-				<div class="page-header"><h4 align="left">Personal Information</h4></div>				
+				<div class="page-header"><h4 align="left">Personal Information</h4></div>
 				<div class="control-group">
 					<label class="control-label" for="prefix">Prefix</label>
 					<div class="controls" >
@@ -134,7 +133,7 @@
 						</select>
 					</div>
 				</div>
-								
+
 				<div class="form-actions">
 					<button type="submit" class="btn btn-primary">Save changes</button>
 					<button type="button" class="btn">Cancel</button>
@@ -143,11 +142,15 @@
 		</div>
 	</div>
 </div>
-	
-	
-            
+
+
+
     <jsp:include page="/WEB-INF/views/Core/footer.jsp">
         <jsp:param name="name" value="sos" />
     </jsp:include>
+
+		<script type="text/javascript" src="/resources/js/icanj.js"></script>
+		<script type="text/javascript" src="/resources/js/mobile.js"></script>
+
 </body>
 </html>

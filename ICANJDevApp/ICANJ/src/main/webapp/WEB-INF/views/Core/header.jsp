@@ -14,6 +14,7 @@
 <link href="/resources/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
 <link href="/resources/css/docs.css" rel="stylesheet" media="screen">
 <link href="/resources/css/icanj.css" rel="stylesheet" media="screen">
+<link href="/resources/css/mobile.css" rel="stylesheet" media="screen">
 <style type="text/css">
       body {
         padding-top: 60px;
@@ -28,6 +29,11 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+					<a class="btn btn-navbar btn-left-navbar" data-toggle="collapse" data-target=".nav-left-navbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

@@ -7,11 +7,14 @@
 </jsp:include>
 </head>
 <body>
-	<div class="container-fluid">
+
+	<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
+
+	<div class="container-fluid page">
 		<div class="row-fluid">
-			<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-				<jsp:param name="name" value="sos" />
-			</jsp:include>
+
 			<div class="span9">
 			<h3>ICANJ Family Details</h3>
 				<div class="hero-unit familyName pull-left">
@@ -54,6 +57,7 @@
 		<jsp:include page="/WEB-INF/views/Core/footer.jsp">
 			<jsp:param name="name" value="sos" />
 		</jsp:include>
+		<script type="text/javascript" src="/resources/js/mobile.js"></script>
 	</div>
 </body>
 </html>

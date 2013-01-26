@@ -1,7 +1,7 @@
 .jumbotron {
   background: url(../img/icanjHeader.png);
   background-repeat: no-repeat;
-  
+
 }
 .header {
 	background: url(../img/icanjHeader.png);
@@ -11,4 +11,8 @@
 .mobile-header {
 	background: url(../img/icanjHeaderIPhone.png);
 	background-repeat: no-repeat;
+}
+
+.menu {
+	padding-right: 40px;
 }
