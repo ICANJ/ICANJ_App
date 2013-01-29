@@ -1,7 +1,7 @@
 /************************************************************************
- * 
+ *
  * Copyright 2012 - ICANJ
- * 
+ *
  ************************************************************************/
 
 package org.icanj.app.directory.service;
@@ -18,11 +18,12 @@ import org.icanj.app.directory.entity.Member;
 
 @Service
 public interface DirectoryService {
-	
+
 	public boolean addMember(HttpServletRequest request);
 	public boolean addMembers(HttpServletRequest request);
 	public boolean addFamily(HttpServletRequest request);
 	public boolean updateFamily(HttpServletRequest request) throws Exception;
+	public boolean updateMember(HttpServletRequest request) throws Exception;
 	public List<Member> listMembers();
 	public List<Family> listFamilies();
 	public List<Member> listMemberByFamily(long familyId);

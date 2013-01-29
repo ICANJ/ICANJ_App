@@ -21,7 +21,13 @@
 <body>
 
 	<div class="container">
-
+		<c:if test="${not empty alert}">
+			<div class="alert ${alert.cssAlertClass}" id="errorBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<strong>Warning! :</strong>
+				${alert.message}
+			</div>
+		</c:if>
 		<form class="form-signin" action="j_spring_security_check"
 			method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>

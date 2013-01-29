@@ -13,11 +13,6 @@
 	<jsp:param name="name" value="sos" />
 </jsp:include>
 
-<script>
-function createAccountModal(memberID){
-	$("#setMemberId").attr({"value": memberID});
-	}
-</script>
 </head>
 
 <body>
@@ -28,7 +23,13 @@ function createAccountModal(memberID){
 			<h1>Register Accounts</h1>
 		</div>
 
-		<div class="alert alert-success">${message}</div>
+		<c:if test="${not empty alert}">
+			<div class="alert ${alert.cssAlertClass}" id="errorBox">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<strong>Warning! :</strong>
+				${alert.message}
+			</div>
+		</c:if>
 		<div class="row">
 			<form class="form-horizontal span4 " action="AddFamily.html">
 
@@ -66,12 +67,12 @@ function createAccountModal(memberID){
 
 		</div>
 		<div class="modal-footer">
-			<a href="/Public/Register/" type="button" class="btn">Go Back</a>
-			<a href="/" type="button" class="btn btn-primary">Finish</a>
+			<a href="/Public/Register/" type="button" class="btn pull-left">Go Back</a>
+			<a href="/" type="button" class="btn btn-primary">Save and Go Back to Login</a>
 		</div>
 
 		<div id="accountModal" class="modal hide fade">
-			<form action="createAccount" method="POST">
+			<form action="createAccount" id="createAccount" method="POST">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
 						aria-hidden="true">&times;</button>
@@ -89,15 +90,17 @@ function createAccountModal(memberID){
 							Email Address</label>
 						<div class="controls">
 							<input type="text" id="emailAddress" name="emailAddress"
-								placeholder="Enter email address">
+								placeholder="Enter email address" data-required="true"
+								data-pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="emailAddress2">Re-Enter
 							Email Address</label>
 						<div class="controls">
-							<input type="text" id="emailAddress2"
-								placeholder="Re-Enter Email Address">
+							<input type="text" id="emailAddress2"	placeholder="Re-Enter Email Address"
+								data-pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"
+								data-required="true" data-conditional="confirmEmail">
 						</div>
 					</div>
 					<div class="control-group">
@@ -105,15 +108,15 @@ function createAccountModal(memberID){
 							Password</label>
 						<div class="controls">
 							<input type="password" id="password1" name="password"
-								placeholder="Enter Password">
+								placeholder="Enter Password" data-required="true">
 						</div>
 					</div>
 					<div class="control-group">
 						<label class="control-label" for="password2">Re-Enter
 							Password</label>
 						<div class="controls">
-							<input type="password" id="password2"
-								placeholder="Re-Enter Password">
+							<input type="password" id="password2" data-required="true"
+								placeholder="Re-Enter Password" data-conditional="confirmPassword">
 						</div>
 					</div>
 
@@ -128,6 +131,50 @@ function createAccountModal(memberID){
 		<jsp:include page="/WEB-INF/views/Core/anonFooter.jsp">
 			<jsp:param name="name" value="sos" />
 		</jsp:include>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				$(".errorBox").alert();
+
+	//			$("#registrationForm").validate({
+	//				rules: {
+	//					phone: {
+	//						required: true,
+	//						phoneUS: true
+	//					}
+	//				}
+	//			});
+
+
+				$('#createAccount').validate({
+					onChange : true,
+					onKeyup : true,
+					eachValidField : function() {
+						$(this).closest('div').removeClass('error').addClass('success');
+						$(this).find('.help-block').text('');
+					},
+					eachInvalidField : function() {
+						$(this).closest('div').removeClass('success').addClass('error');
+						$(this).find('.help-block').text('Incorrect value');
+					},
+					conditional : {
+							confirmPassword : function() {
+									return $(this).val() == $('#password1').val();
+							},
+							confirmEmail : function() {
+								return $(this).val() == $('#emailAddress').val();
+							}
+					}
+				});
+
+				function createAccountModal(memberID){
+					$("#setMemberId").attr({"value": memberID});
+				}
+
+
+			});
+		</script>
 	</div>
 
 

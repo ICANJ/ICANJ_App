@@ -23,11 +23,14 @@
 					<h1>Family Signup Page</h1>
 				</div>
 				
-				<div class=" alert ${alert.cssAlertClass}" id="errorBox">
-				<button type="button" class="close" data-dismiss="alert">×</button>
-				<h4>Warning! :</h4>
-				${alert.message}
-			    </div>
+
+			<c:if test="${not empty alert}">
+				<div class="alert ${alert.cssAlertClass}" id="errorBox">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<strong>Warning! :</strong>
+					${alert.message}
+				</div>
+			</c:if>
 
 				<div class="pager">
 					<div id="errorBox"></div>

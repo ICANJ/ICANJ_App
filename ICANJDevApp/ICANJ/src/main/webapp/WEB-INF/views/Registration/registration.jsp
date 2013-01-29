@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,11 +17,12 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container span6 offset4">
 		<div class="page-header">
 			<h1>User Registration</h1>
 		</div>
-		<c:if ${alert.message.isEmpty()} >
+
+		<c:if test="${not empty alert}">
 			<div class="alert ${alert.cssAlertClass}" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<strong>Warning! :</strong>
@@ -47,8 +49,8 @@
 							<div class="modal-footer">
 			<button type="submit" class="btn">Next</button>
 			<a href="/" type="button" class="btn btn-primary">Login</a>
-		</div>
-
+					<a href="/ICANJ/" type="button" class="btn btn-primary pull-left">Go Back to Login</a>
+				</div>
 			</div>
 		</form>
 	</div>

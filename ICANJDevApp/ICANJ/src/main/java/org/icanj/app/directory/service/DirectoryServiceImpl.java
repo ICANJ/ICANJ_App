@@ -1,7 +1,7 @@
 /************************************************************************
- * 
+ *
  * Copyright 2012 - ICANJ
- * 
+ *
  ************************************************************************/
 
 package org.icanj.app.directory.service;
@@ -113,7 +113,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 				Family family = new Family();
 				Address address = new Address();
-				
+
 				String homePhone= request.getParameter("i1").trim()+
 						  request.getParameter("i2").trim()+
 						  request.getParameter("i3").trim();
@@ -176,7 +176,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 			member.setLastName(request.getParameter("m"+i+"LastName"));
 			member.setMemberRelation(request.getParameter("m"+i+"Relation"));
 			member.setInteractiveAccess(false);
-			
+
 			directoryhibernateDao.addMember(member);
 			}
 		}
@@ -200,20 +200,27 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 	@Override
 	public List<Family> listFamilies() {
-		
+
 		return directoryhibernateDao.listFamilies();
 	}
 
 	@Override
 	public Member getMemberFromPrincipal(String principal) {
-		
+
 		return directoryhibernateDao.getMemberFromPrincipal(principal);
 	}
 
+	/**
+	 * Implementation for updateFamily
+	 *
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@Override
 	public boolean updateFamily(HttpServletRequest request) throws Exception{
-		
-		
+
+
 		if (HTTPUtils.validateParameter(request, "familyName")
 				&& HTTPUtils.validateParameter(request, "familyId")
 				&& HTTPUtils.validateParameter(request, "street")
@@ -221,11 +228,11 @@ public class DirectoryServiceImpl implements DirectoryService {
 				&& HTTPUtils.validateParameter(request, "state")
 				&& HTTPUtils.validateParameter(request, "zip")
 				&& HTTPUtils.validateParameter(request, "homePhoneNumber")){
-			
+
 			String familyId= request.getParameter("familyId");
-			Family family = directoryhibernateDao.getFamily(Long.parseLong(familyId));			
+			Family family = directoryhibernateDao.getFamily(Long.parseLong(familyId));
 			Address address = directoryhibernateDao.findAddressById(Long.parseLong(familyId));
-			
+
 			family.setFamilyName(request.getParameter("familyName").trim());
 			family.setHomePhoneNumber(request.getParameter("homePhoneNumber").trim());
 			family.setTagLine(request.getParameter("familyTagLine").trim());
@@ -236,18 +243,14 @@ public class DirectoryServiceImpl implements DirectoryService {
 			address.setParkingDetails(request.getParameter("parkingInfo").trim());
 			family.setAddress(address);
 			address.setFamily(family);
-			
+
 			//This method uses add or update hibernate function.
 			directoryhibernateDao.addFamily(family);
 			return true;
-			
+
 		}else{
 			return false;
 		}
-		
-		
-		
-		
 	}
 
 	@Override
@@ -255,4 +258,33 @@ public class DirectoryServiceImpl implements DirectoryService {
 		return directoryhibernateDao.searchMembers(srchCriteria);
 		 
 	}
+	/**
+	 * Implementation for updateMember
+	 *
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@Override
+	public boolean updateMember(HttpServletRequest request) throws Exception{
+
+		if (HTTPUtils.validateParameter(request, "familyName")
+				&& HTTPUtils.validateParameter(request, "familyId")
+				&& HTTPUtils.validateParameter(request, "street")
+				&& HTTPUtils.validateParameter(request, "city")
+				&& HTTPUtils.validateParameter(request, "state")
+				&& HTTPUtils.validateParameter(request, "zip")
+				&& HTTPUtils.validateParameter(request, "homePhoneNumber")) {
+
+
+
+			return true;
+		} else {
+
+			return false;
+		}
+
+
+	}
+
 }

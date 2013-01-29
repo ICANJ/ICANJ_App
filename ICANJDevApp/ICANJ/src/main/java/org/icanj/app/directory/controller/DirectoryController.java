@@ -45,7 +45,7 @@ public class DirectoryController {
 
 	/**
 	 * Show list of all families and the family members
-	 * 
+	 *
 	 * @param model
 	 * @return
 	 */
@@ -103,6 +103,7 @@ public class DirectoryController {
 
 	/**
 	 * Get details of the family linked with the current logged in user
+	 *
 	 * @param model
 	 * @param principal
 	 * @return
@@ -134,7 +135,7 @@ public class DirectoryController {
 
 	/**
 	 * Save details of family when edited
-	 * 
+	 *
 	 * @param request
 	 * @param model
 	 * @return
@@ -150,7 +151,7 @@ public class DirectoryController {
 			f = directoryServiceImpl.getFamily(Long.parseLong(request
 					.getParameter("familyId")));
 			directoryServiceImpl.updateFamily(request);
-
+			
 			long fId = f.getFamilyId();
 
 			members = directoryServiceImpl.listMemberByFamily(fId);
@@ -165,8 +166,37 @@ public class DirectoryController {
 	}
 
 	/**
+	 * Save details of member when edited
+	 *
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/UpdateMember", method = RequestMethod.POST)
+	public String updateMember(HttpServletRequest request, ModelMap model)
+			throws Exception {
+		List<Member> members = null;
+		Family f = null;
+
+		try {
+			model.addAttribute("members", members);
+			model.addAttribute("family", f);
+			model.addAttribute("message",	"Unable to save member details"
+							+ "Please contact ICANJ IT Team");
+			return "/Profile/GetMemberProfile";
+		} catch (Exception e) {
+			model.addAttribute("message",
+					"Unable to save member details"	+ "Please contact ICANJ IT Team");
+			return "/Profile/GetMemberProfile";
+		}
+
+	}
+
+
+	/**
 	 * Show details of individual member based on memberId
-	 * 
+	 *
 	 * @param request
 	 * @param model
 	 * @return
@@ -186,25 +216,25 @@ public class DirectoryController {
 			// family id won't be null because user was able to click on edit
 			// detail buttin.
 			//System.out.println(request.getParameter("familyId"));
-			
+
 			if (HTTPUtils.validateParameter(request, "memberId")) {
 				m = directoryServiceImpl.getMember(Long.parseLong(request
 						.getParameter("memberId")));
 				model.addAttribute("member", m);
-				
+
 				return "/Profile/memberDetails";
-				
+
 			}else if(HTTPUtils.validateParameter(request, "personalProfile")) {
-				
+
 				Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			    String userName = auth.getName();
 			    Member mem = directoryServiceImpl.getMemberFromPrincipal(userName);
 			    model.addAttribute("member", mem);
-				
+
 				return "/Profile/memberDetails";
-			    
+
 			}else{
-				
+
 				f = directoryServiceImpl.getFamily(Long.parseLong(request
 						.getParameter("familyId")));
 				long fId = f.getFamilyId();
@@ -213,13 +243,13 @@ public class DirectoryController {
 				model.addAttribute("members", members);
 				model.addAttribute("message", "Member ID not found");
 				return "/Profile/familyDetails";
-				
+
 			}
 
 			// get member details
-			
+
                        // directoryServiceImpl.updateFamily( request );
-			
+
 
 		} catch (Exception e) {
 			logger.error(e.getLocalizedMessage(), e);
