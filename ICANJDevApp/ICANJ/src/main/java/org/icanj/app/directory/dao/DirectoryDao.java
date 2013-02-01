@@ -28,4 +28,5 @@ public interface DirectoryDao {
 	public List<Member> MemFamilyNoInteractive(long familyId);
 	public List<Family> listFamilies();
 	public Member getMemberFromPrincipal(String principal);
+	public List<Member> searchMembers(String srchCriteria);
 }

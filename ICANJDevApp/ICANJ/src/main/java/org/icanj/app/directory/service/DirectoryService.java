@@ -34,4 +34,5 @@ public interface DirectoryService {
 	public List<Address> listAddresses();
 	public Family getFamilyHomePhoneNo(String homePhoneNumber);
 	public Member getMemberFromPrincipal(String principal);
-}
+	public List<Member> searchMembers(String srchCriteria);
+	}

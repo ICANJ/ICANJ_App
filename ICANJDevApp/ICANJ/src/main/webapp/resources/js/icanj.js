@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-
+	
 	$("#relationship").change( function() {
 	var relSelected = $("#relationship option:selected").text();
 	if( relSelected === 'Other' ) {
@@ -9,17 +8,17 @@ $(document).ready(function() {
 		$('.other, .gender').hide();
 	}
 	});
+	
+	
 
     // close alert message window
     $('.alert').alert('close');
-
+	//$("#errorBox").alert('close');
 	// ICANJ directory dataTable setup
-	$('#directory').dataTable();
+	$("#directory").dataTable();
 
 	function loggedUserProfile() {
 		
 	}
-
-
 });
 

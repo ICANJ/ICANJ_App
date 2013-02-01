@@ -22,7 +22,7 @@
 			<h1>Member Signup Page</h1>
 		</div>
 
-            <div class="${alert.cssAlertClass}" id="errorBox">
+            <div class="alert ${alert.cssAlertClass}" id="errorBox">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4>Warning! :</h4>
 				${alert.message}
@@ -71,6 +71,24 @@
 				<table class="table table-condensed">
 				<tr>
 				<td>Enter Name</td>
+				<td><input class="input-medium" type="text" id="m0FirstName" name="m0FirstName" value="${familyNameF}" placeholder="First Name"></td>
+				<td><input class="input-medium" type="text" id="m0MiddleName" name="m0MiddleName" value="${familyNameM}" placeholder="Middle Name"></td>
+				<td><input class="input-medium" type="text" id="m0LastName" name="m0LastName" value="${familyNameL}" placeholder="Last Name"></td>
+				<td>
+				<select id="m0Relation" name="m0Relation">
+							<option value="Head Of Household">Head Of Household</option>
+							<option value="Wife">Wife</option>
+							<option value="Mother">Mother</option>
+							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
+							<option value="Son">Son</option>
+							<option value="Daughter">Daughter</option>
+						</select>
+				</td>
+				</tr>
+				<tr>
+				<td>Enter Name</td>
 				<td><input class="input-medium" type="text" id="m1FirstName" name="m1FirstName" placeholder="First Name"></td>
 				<td><input class="input-medium" type="text" id="m1MiddleName" name="m1MiddleName" placeholder="Middle Name"></td>
 				<td><input class="input-medium" type="text" id="m1LastName" name="m1LastName" placeholder="Last Name"></td>
@@ -80,6 +98,26 @@
 							<option value="Wife">Wife</option>
 							<option value="Mother">Mother</option>
 							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
+							<option value="Son">Son</option>
+							<option value="Daughter">Daughter</option>
+						</select>
+				</td>
+				</tr>
+				<tr>
+				<td>Enter Name</td>
+				<td><input class="input-medium" type="text" id="m1FirstName" name="m1FirstName" placeholder="First Name"></td>
+				<td><input class="input-medium" type="text" id="m1MiddleName" name="m1MiddleName" placeholder="Middle Name"></td>
+				<td><input class="input-medium" type="text" id="m1LastName" name="m1LastName" placeholder="Last Name"></td>
+				<td>
+				<select id="m1Relation" name="m1Relation">
+							<option value="Head Of Household">Head Of Household</option>
+							<option value="Wife">Wife</option>
+							<option value="Mother">Mother</option>
+							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>
@@ -97,6 +135,8 @@
 							<option value="Wife">Wife</option>
 							<option value="Mother">Mother</option>
 							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>
@@ -114,6 +154,46 @@
 							<option value="Wife">Wife</option>
 							<option value="Mother">Mother</option>
 							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
+							<option value="Son">Son</option>
+							<option value="Daughter">Daughter</option>
+						</select>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>Enter Name</td>
+				<td><input class="input-medium" type="text" id="m4FirstName" name="m4FirstName" placeholder="First Name"></td>
+				<td><input class="input-medium" type="text" id="m4MiddleName" name="m4MiddleName" placeholder="Middle Name"></td>
+				<td><input class="input-medium" type="text" id="m4LastName" name="m4LastName" placeholder="Last Name"></td>
+				<td>
+				<select id="m4Relation" name="m4Relation">
+							<option value="Head Of Household">Head Of Household</option>
+							<option value="Wife">Wife</option>
+							<option value="Mother">Mother</option>
+							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
+							<option value="Son">Son</option>
+							<option value="Daughter">Daughter</option>
+						</select>
+				</td>
+				</tr>
+				
+				<tr>
+				<td>Enter Name</td>
+				<td><input class="input-medium" type="text" id="m5FirstName" name="m5FirstName" placeholder="First Name"></td>
+				<td><input class="input-medium" type="text" id="m5MiddleName" name="m5MiddleName" placeholder="Middle Name"></td>
+				<td><input class="input-medium" type="text" id="m5LastName" name="m5LastName" placeholder="Last Name"></td>
+				<td>
+				<select id="m5Relation" name="m5Relation">
+							<option value="Head Of Household">Head Of Household</option>
+							<option value="Wife">Wife</option>
+							<option value="Mother">Mother</option>
+							<option value="Father">Father</option>
+							<option value="Brother">Brother</option>
+							<option value="Sister">Sister</option>
 							<option value="Son">Son</option>
 							<option value="Daughter">Daughter</option>
 						</select>

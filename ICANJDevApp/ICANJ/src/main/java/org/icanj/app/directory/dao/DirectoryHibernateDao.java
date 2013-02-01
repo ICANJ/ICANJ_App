@@ -107,4 +107,13 @@ public class DirectoryHibernateDao implements DirectoryDao {
 		return user.size()>0 ? getMember(user.get(0).getMemberId()) : null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Member> searchMembers(String srchCriteria) {
+		
+		String query = "from Member m where m.firstName like ? OR m.lastName like ?";
+		List<Member> members = hibernateTemplate.find(query, '%' + srchCriteria + '%', '%' + srchCriteria + '%');
+		return members;
+	}
+
 }

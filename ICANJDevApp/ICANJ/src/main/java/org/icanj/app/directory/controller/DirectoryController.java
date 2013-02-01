@@ -58,6 +58,30 @@ public class DirectoryController {
 		return "Directory/viewAll";
 
 	}
+	
+	@RequestMapping(value = "/SearchMember", method = RequestMethod.GET)
+	@ResponseBody
+	public String searchMembers(@RequestParam("srchMember") String memberCriteria, ModelMap model) {
+		  
+		List<Member> members = directoryServiceImpl.searchMembers(memberCriteria);
+		if(members !=null){
+			StringBuffer stringBuffer = new StringBuffer();
+			stringBuffer.append("<table class='table table-hover'>");
+			for(Member m: members){
+				stringBuffer.append("<tr><td>"+m.getFirstName() + " "+ m.getLastName() +"</td>" +
+						"<td><a href='#titheModal' type='button'"+
+								"data-toggle='modal' class='btn btn-small'"+
+								"onclick='createTitheModal("+m.getMemberId()+")'>Select Member</a></td>"
+						+"</tr>");	
+			}
+			stringBuffer.append("</table>");
+			return stringBuffer.toString();
+		}else {
+			return "";
+		}
+			
+
+	}
 
 	/**
 	 * Get details of a family members of a specific family

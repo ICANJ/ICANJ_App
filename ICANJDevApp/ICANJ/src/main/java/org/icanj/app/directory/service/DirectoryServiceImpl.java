@@ -103,7 +103,8 @@ public class DirectoryServiceImpl implements DirectoryService {
 	public boolean addFamily(HttpServletRequest request) {
 
 		try {
-			if (HTTPUtils.validateParameter(request, "familyName")
+			if (HTTPUtils.validateParameter(request, "familyNameF")
+					&& HTTPUtils.validateParameter(request, "familyNameL")
 					&& HTTPUtils.validateParameter(request, "streetAddress")
 					&& HTTPUtils.validateParameter(request, "city")
 					&& HTTPUtils.validateParameter(request, "state")
@@ -117,7 +118,8 @@ public class DirectoryServiceImpl implements DirectoryService {
 						  request.getParameter("i2").trim()+
 						  request.getParameter("i3").trim();
 
-				family.setFamilyName(request.getParameter("familyName").trim());
+				family.setFamilyName(request.getParameter("familyNameF").trim() + " " +
+						request.getParameter("familyNameL").trim());
 				family.setEmailAddress(request.getParameter("emailAddress").trim());
 				family.setHomePhoneNumber(homePhone);
 				address.setStreetAddress(request.getParameter("streetAddress").trim());
@@ -164,7 +166,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	public boolean addMembers(HttpServletRequest request) {
 		try{
 		long familyId = Long.parseLong(request.getParameter("familyId"));
-		for(int i=1; i<=5 ; i++){
+		for(int i=0; i<=5 ; i++){
 			if(HTTPUtils.validateParameter(request, "m"+i+"FirstName")&&
 			   HTTPUtils.validateParameter(request, "m"+i+"LastName")){
 			Member member = new Member();
@@ -246,5 +248,11 @@ public class DirectoryServiceImpl implements DirectoryService {
 		
 		
 		
+	}
+
+	@Override
+	public List<Member> searchMembers(String srchCriteria) {
+		return directoryhibernateDao.searchMembers(srchCriteria);
+		 
 	}
 }
