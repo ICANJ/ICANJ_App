@@ -104,7 +104,7 @@ public class SignupController {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param request
 	 * @return
 	 */
@@ -116,7 +116,7 @@ public class SignupController {
 		String pageUrl = "/Signup/memberSignup";
 		String successUrl = "/Signup/familySignup";
 
-		if(HTTPUtils.validateParameter(request, "familyId")){
+		if(HTTPUtils.validateParameter(request, "familyId", 2)){
 			directoryServiceImpl.addMembers(request);
 			message="The member information was added sucessfully!! ";
 			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_ERROR, message));

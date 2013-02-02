@@ -1,13 +1,16 @@
-/************************************************************************
+/**
+ * **********************************************************************
  *
  * Copyright 2012 - ICANJ
  *
- ************************************************************************/
-
+ ***********************************************************************
+ */
 package org.icanj.app.directory.service;
 
-import java.util.Date;
 import java.util.HashMap;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -35,8 +38,7 @@ import org.icanj.app.utils.HTTPUtils;
 public class DirectoryServiceImpl implements DirectoryService {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(DirectoryServiceImpl.class);
-
+					.getLogger(DirectoryServiceImpl.class);
 	@Autowired
 	private DirectoryDao directoryhibernateDao;
 	
@@ -103,6 +105,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	public boolean addFamily(HttpServletRequest request) {
 
 		try {
+<<<<<<< HEAD
 			if (HTTPUtils.validateParameter(request, "familyNameF")
 					&& HTTPUtils.validateParameter(request, "familyNameL")
 					&& HTTPUtils.validateParameter(request, "streetAddress")
@@ -110,13 +113,20 @@ public class DirectoryServiceImpl implements DirectoryService {
 					&& HTTPUtils.validateParameter(request, "state")
 					&& HTTPUtils.validateParameter(request, "emailAddress")
 					&& HTTPUtils.validateParameter(request, "country")) {
+=======
+			if (HTTPUtils.validateParameter(request, "familyName", 2)
+							&& HTTPUtils.validateParameter(request, "streetAddress", 2)
+							&& HTTPUtils.validateParameter(request, "city", 2)
+							&& HTTPUtils.validateParameter(request, "state", 2)
+							&& HTTPUtils.validateParameter(request, "country", 2)) {
+>>>>>>> * Validation in registration page.
 
 				Family family = new Family();
 				Address address = new Address();
 
-				String homePhone= request.getParameter("i1").trim()+
-						  request.getParameter("i2").trim()+
-						  request.getParameter("i3").trim();
+				String homePhone = request.getParameter("i1").trim()
+								+ request.getParameter("i2").trim()
+								+ request.getParameter("i3").trim();
 
 				family.setFamilyName(request.getParameter("familyNameF").trim() + " " +
 						request.getParameter("familyNameL").trim());
@@ -142,12 +152,17 @@ public class DirectoryServiceImpl implements DirectoryService {
 				}
 				
 				return true;
-			}else{
+			} else {
 				return false;
 			}
 		} catch (Exception e) {
+<<<<<<< HEAD
 			logger.warn("Error persisting new Family entity in Directory Service."
 					+ e.getMessage(),e);
+=======
+			logger.error("Bad Incoming Request in Directory Service."
+							+ e.getMessage());
+>>>>>>> * Validation in registration page.
 			return false;
 		}
 	}
@@ -164,6 +179,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	@Override
 	@Transactional
 	public boolean addMembers(HttpServletRequest request) {
+<<<<<<< HEAD
 		try{
 		long familyId = Long.parseLong(request.getParameter("familyId"));
 		for(int i=0; i<=5 ; i++){
@@ -178,9 +194,25 @@ public class DirectoryServiceImpl implements DirectoryService {
 			member.setInteractiveAccess(false);
 
 			directoryhibernateDao.addMember(member);
+=======
+		try {
+			long familyId = Long.parseLong(request.getParameter("familyId"));
+			for (int i = 1; i <= 5; i++) {
+				if (HTTPUtils.validateParameter(request, "m" + i + "FirstName", 2)
+								&& HTTPUtils.validateParameter(request, "m" + i + "LastName", 2)) {
+					Member member = new Member();
+					member.setFamilyId(familyId);
+					member.setFirstName(request.getParameter("m" + i + "FirstName"));
+					member.setMiddleName(request.getParameter("m" + i + "MiddleName"));
+					member.setLastName(request.getParameter("m" + i + "LastName"));
+					member.setMemberRelation(request.getParameter("m" + i + "Relation"));
+					member.setInteractiveAccess(false);
+
+					directoryhibernateDao.addMember(member);
+				}
+>>>>>>> * Validation in registration page.
 			}
-		}
-		}catch(Exception ex){
+		} catch (Exception ex) {
 			logger.error(ex.getMessage());
 		}
 		return false;
@@ -218,18 +250,18 @@ public class DirectoryServiceImpl implements DirectoryService {
 	 * @throws Exception
 	 */
 	@Override
-	public boolean updateFamily(HttpServletRequest request) throws Exception{
+	public boolean updateFamily(HttpServletRequest request) throws Exception {
 
 
-		if (HTTPUtils.validateParameter(request, "familyName")
-				&& HTTPUtils.validateParameter(request, "familyId")
-				&& HTTPUtils.validateParameter(request, "street")
-				&& HTTPUtils.validateParameter(request, "city")
-				&& HTTPUtils.validateParameter(request, "state")
-				&& HTTPUtils.validateParameter(request, "zip")
-				&& HTTPUtils.validateParameter(request, "homePhoneNumber")){
+		if (HTTPUtils.validateParameter(request, "familyName", 2)
+						&& HTTPUtils.validateParameter(request, "familyId", 2)
+						&& HTTPUtils.validateParameter(request, "street", 2)
+						&& HTTPUtils.validateParameter(request, "city", 2)
+						&& HTTPUtils.validateParameter(request, "state", 2)
+						&& HTTPUtils.validateParameter(request, "zip", 2)
+						&& HTTPUtils.validateParameter(request, "homePhoneNumber", 2)) {
 
-			String familyId= request.getParameter("familyId");
+			String familyId = request.getParameter("familyId");
 			Family family = directoryhibernateDao.getFamily(Long.parseLong(familyId));
 			Address address = directoryhibernateDao.findAddressById(Long.parseLong(familyId));
 
@@ -248,7 +280,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 			directoryhibernateDao.addFamily(family);
 			return true;
 
-		}else{
+		} else {
 			return false;
 		}
 	}
@@ -266,18 +298,40 @@ public class DirectoryServiceImpl implements DirectoryService {
 	 * @throws Exception
 	 */
 	@Override
-	public boolean updateMember(HttpServletRequest request) throws Exception{
-
-		if (HTTPUtils.validateParameter(request, "familyName")
-				&& HTTPUtils.validateParameter(request, "familyId")
-				&& HTTPUtils.validateParameter(request, "street")
-				&& HTTPUtils.validateParameter(request, "city")
-				&& HTTPUtils.validateParameter(request, "state")
-				&& HTTPUtils.validateParameter(request, "zip")
-				&& HTTPUtils.validateParameter(request, "homePhoneNumber")) {
+	public boolean updateMember(HttpServletRequest request) throws Exception {
 
 
 
+		if (HTTPUtils.validateParameter(request, "memberId", 2)
+			&& HTTPUtils.validateParameter(request, "familyId", 2)
+			&& HTTPUtils.validateParameter(request, "email", 2)
+			&& HTTPUtils.validateParameter(request, "firstName", 2)
+			&& HTTPUtils.validateParameter(request, "lastName", 2)
+			&& HTTPUtils.validateParameter(request, "gender", 1)
+			&& HTTPUtils.validateParameter(request, "dateOfBirth", 2)
+			&& HTTPUtils.validateParameter(request, "cellPhoneNumber", 2)
+			&& HTTPUtils.validateParameter(request, "memberRelation", 1)) {
+
+			String memberId = request.getParameter("memberId");
+			Member member = directoryhibernateDao.getMember(Long.parseLong(memberId));
+			String s;
+			Date date;
+			DateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+
+			member.setMemberId(Long.parseLong(request.getParameter("memberId").trim()));
+			member.setCellPhoneNumber(request.getParameter("cellPhoneNumber").trim());
+			member.setWorkPhoneNumber(request.getParameter("workPhoneNumber").trim());
+			member.setFamilyId(Long.parseLong(request.getParameter("familyId").trim()));
+			member.setEmail(request.getParameter("email").trim());
+			member.setFamilyId(Long.parseLong(request.getParameter("familyId").trim()));
+			member.setFirstName(request.getParameter("firstName").trim());
+			member.setLastName(request.getParameter("middleName").trim());
+			member.setMiddleName(request.getParameter("lastName").trim());
+			member.setNickName(request.getParameter("nickName").trim());
+			member.setGender(request.getParameter("gender").trim());
+			date = (Date) formatter.parse(request.getParameter("dateOfBirth").trim());
+			member.setDateOfBirth(date);
+			member.setMemberRelation(request.getParameter("memberRelation").trim());
 			return true;
 		} else {
 
@@ -286,5 +340,4 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 
 	}
-
 }

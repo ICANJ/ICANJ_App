@@ -113,9 +113,9 @@ public class RegisterController {
 		String failUrl ="/Registration/registration";
 		String successUrl ="/Registration/selectAccount";
 
-		if(HTTPUtils.validateParameter(request, "memberId")&&
-		   HTTPUtils.validateParameter(request, "emailAddress")&&
-		   HTTPUtils.validateParameter(request, "password")){
+		if(HTTPUtils.validateParameter(request, "memberId", 2)&&
+		   HTTPUtils.validateParameter(request, "emailAddress", 2)&&
+		   HTTPUtils.validateParameter(request, "password", 2)){
 
 			logger.info("Creating Login Account for member id: " +request.getParameter("memberId") );
 			authenticationService.createMemberAccount(Long.parseLong(request.getParameter("memberId").trim()),

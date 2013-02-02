@@ -38,6 +38,10 @@
 						Personal Information
 						-->
 						<div class="page-header"><h4 align="left">Personal Information</h4></div>
+						<input  type="hidden" id="memberId" name="memberId"
+										value="${member.memberId}">
+						<input  type="hidden" id="memberId" name="familyId"
+										value="${member.familyId}">
 						<div class="control-group">
 							<label class="control-label" for="prefix">Prefix</label>
 							<div class="controls" >
@@ -55,7 +59,8 @@
 							<label class="control-label" for="firstName">First Name</label>
 							<div class="controls">
 								<input  type="text" id="firstName" name="firstName"
-												placeholder="Enter First Name" value="${member.firstName}">
+												placeholder="Enter First Name" value="${member.firstName}"
+												data-required>
 							</div>
 						</div>
 						<div class="control-group">
@@ -69,34 +74,37 @@
 							<label class="control-label" for="lastName">Last Name</label>
 							<div class="controls">
 								<input  type="text" id="lastName" name="lastName"
-												placeholder="Enter Last Name" value="${member.lastName}">
+												placeholder="Enter Last Name" value="${member.lastName}"
+												data-required>
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="nickname">Nickname</label>
+							<label class="control-label" for="nickName">Nickname</label>
 							<div class="controls">
-								<input  type="text" id="nickname" name="nickname"
-												placeholder="Enter Nickname" value="${member.lastName}">
+								<input  type="text" id="nickname" name="nickName"
+												placeholder="Enter Nickname" value="${member.nickName}">
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label" for="nickname">Email</label>
+							<label class="control-label" for="email">Email</label>
 							<div class="controls">
-								<input  type="text" id="nickname" name="nickname"
-												placeholder="Enter Nickname" value="${member.email}">
+								<input  type="text" id="nickname" name="email"
+												placeholder="Enter Email" value="${member.email}"
+												data-required>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="cellPhoneNumber">Cell Phone Number</label>
 							<div class="controls">
 								<input  type="text" id="phoneNumber" name="phoneNumber"
-												placeholder="Enter Phone Number" value="${member.cellPhoneNumber}">
+												placeholder="Enter Phone Number" value="${member.cellPhoneNumber}"
+												data-required>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="workPhoneNumber">Work Phone Number</label>
 							<div class="controls">
-								<input  type="text" id="phoneNumber" name="phoneNumber"
+								<input  type="text" id="phoneNumber" name="workPhoneNumber"
 												placeholder="Enter Phone Number" value="${member.workPhoneNumber}">
 							</div>
 						</div>
@@ -104,13 +112,14 @@
 							<label class="control-label" for="dateOfBirth">Date of Birth</label>
 							<div class="controls">
 								<input  type="text" id="dateOfBirth" name="dateOfBirth"
-												placeholder="Enter Date of Birth" value="${member.dateOfBirth}">
+												placeholder="Enter Date of Birth" value="${member.dateOfBirth}"
+												data-required>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="relationship">Relationship</label>
 							<div class="controls">
-								<select id="relationship" name="relationship">
+								<select id="relationship" name="relationship" data-required>
 									<option value="0">Father</option>
 									<option value="1">Mother</option>
 									<option value="2">Daughter</option>
@@ -125,15 +134,15 @@
 						<div class="control-group other hide">
 							<label class="control-label" for="other">Relationship</label>
 							<div class="controls">
-								<input  type="text" id="other" name="other"
+								<input  type="text" id="other" name="other" data-required
 												placeholder="Enter Relationship">
 							</div>
 						</div>
 						<!-- Hidden till other is selected -->
-						<div class="control-group gender hide">
+						<div class="control-group gender">
 							<label class="control-label" for="gender">Gender</label>
 							<div class="controls">
-								<select id="relationship" name="relationship">
+								<select id="relationship" name="relationship" data-required>
 									<option value="0">Male</option>
 									<option value="1">Female</option>
 								</select>

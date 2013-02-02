@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/views/Core/anonHeader.jsp">
 	<jsp:param name="name" value="sos" />
 </jsp:include>
-
+<link href="/resources/css/registration.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -109,6 +109,15 @@
 						<div class="controls">
 							<input type="password" id="password1" name="password"
 								placeholder="Enter Password" data-required="true">
+							<div id="pswd_info">
+								<h4>Password must meet the following requirements:</h4>
+								<ul>
+									<li id="letter" class="invalid">At least <strong>one letter</strong></li>
+									<li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+									<li id="number" class="invalid">At least <strong>one number</strong></li>
+									<li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="control-group">
@@ -131,21 +140,9 @@
 		<jsp:include page="/WEB-INF/views/Core/anonFooter.jsp">
 			<jsp:param name="name" value="sos" />
 		</jsp:include>
-
+		<script type="text/javascript" src="/resources/js/registration.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
-
-				$(".errorBox").alert();
-
-	//			$("#registrationForm").validate({
-	//				rules: {
-	//					phone: {
-	//						required: true,
-	//						phoneUS: true
-	//					}
-	//				}
-	//			});
-
 
 				$('#createAccount').validate({
 					onChange : true,
@@ -167,13 +164,11 @@
 							}
 					}
 				});
-
-				function createAccountModal(memberID){
-					$("#setMemberId").attr({"value": memberID});
-				}
-
-
 			});
+
+			function createAccountModal(memberID){
+				$("#setMemberId").attr({"value": memberID});
+			}
 		</script>
 	</div>
 
