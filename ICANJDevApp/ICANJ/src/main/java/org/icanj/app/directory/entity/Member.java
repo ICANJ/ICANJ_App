@@ -40,7 +40,7 @@ public class Member implements Serializable {
 	@Column(name="MEMBER_LAST_NAME", nullable = false, length = 30)
 	private String lastName;
 	
-	@Column(name="MEMBER_NICK_NAME", nullable = false, length = 30)
+	@Column(name="MEMBER_NICK_NAME", length = 30)
 	private String nickName;
 	
 	@Column(name="MEMBER_CELL_PHONE", nullable = true, length = 10)

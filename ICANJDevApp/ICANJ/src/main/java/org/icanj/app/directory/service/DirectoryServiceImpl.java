@@ -6,24 +6,29 @@
 
 package org.icanj.app.directory.service;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.velocity.VelocityEngineUtils;
 
+import org.apache.velocity.app.VelocityEngine;
 import org.icanj.app.directory.dao.DirectoryDao;
-import org.icanj.app.directory.dao.DirectoryHibernateDao;
 import org.icanj.app.directory.entity.Address;
 import org.icanj.app.directory.entity.Family;
 import org.icanj.app.directory.entity.Member;
-import org.icanj.app.usersignup.SignupController;
-import org.icanj.app.utils.AppConstant;
 import org.icanj.app.utils.HTTPUtils;
 
 @Service
@@ -34,6 +39,12 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 	@Autowired
 	private DirectoryDao directoryhibernateDao;
+	
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	@Autowired
+	private VelocityEngine velocityEngine;
 
 	public boolean addMember(HttpServletRequest request) {
 
@@ -70,14 +81,34 @@ public class DirectoryServiceImpl implements DirectoryService {
 
 		return directoryhibernateDao.listAddresses();
 	}
+	
+	private void sendConfirmationEmail(final Family family) {
+	      MimeMessagePreparator preparator = new MimeMessagePreparator() {
+	         public void prepare(MimeMessage mimeMessage) throws Exception {
+	            MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+	            message.setTo(family.getEmailAddress());
+	            message.setFrom("administrator@icanj.org"); 
+	            message.setSubject("Welcome to my.icanj.org");// could be parameterized...
+	            Map model = new HashMap();
+	            model.put("family", family);
+	            String text = VelocityEngineUtils.mergeTemplateIntoString(
+	               velocityEngine, "familySignup.vm", model);
+	            message.setText(text, true);
+	         }
 
+	      };
+	      this.mailSender.send(preparator);
+	   }
+	
 	public boolean addFamily(HttpServletRequest request) {
 
 		try {
-			if (HTTPUtils.validateParameter(request, "familyName")
+			if (HTTPUtils.validateParameter(request, "familyNameF")
+					&& HTTPUtils.validateParameter(request, "familyNameL")
 					&& HTTPUtils.validateParameter(request, "streetAddress")
 					&& HTTPUtils.validateParameter(request, "city")
 					&& HTTPUtils.validateParameter(request, "state")
+					&& HTTPUtils.validateParameter(request, "emailAddress")
 					&& HTTPUtils.validateParameter(request, "country")) {
 
 				Family family = new Family();
@@ -87,7 +118,9 @@ public class DirectoryServiceImpl implements DirectoryService {
 						  request.getParameter("i2").trim()+
 						  request.getParameter("i3").trim();
 
-				family.setFamilyName(request.getParameter("familyName").trim());
+				family.setFamilyName(request.getParameter("familyNameF").trim() + " " +
+						request.getParameter("familyNameL").trim());
+				family.setEmailAddress(request.getParameter("emailAddress").trim());
 				family.setHomePhoneNumber(homePhone);
 				address.setStreetAddress(request.getParameter("streetAddress").trim());
 				address.setCity(request.getParameter("city").trim());
@@ -97,13 +130,24 @@ public class DirectoryServiceImpl implements DirectoryService {
 				family.setAddress(address);
 				address.setFamily(family);
 				directoryhibernateDao.addFamily(family);
+				
+				logger.debug("Family Details for " + family.getFamilyName()+ " were added sucessfully.");
+				logger.debug("Emailing User Registration link @ " + family.getEmailAddress());
+				
+				try{
+					sendConfirmationEmail(family);
+					logger.debug("Emailed user " + family.getFamilyName() + " @ "+ new Date());
+				}catch(Exception e){
+					logger.warn("Error emailing user " + family.getFamilyName() + " @ "+ e.getMessage(),e);
+				}
+				
 				return true;
 			}else{
 				return false;
 			}
 		} catch (Exception e) {
-			logger.error("Bad Incoming Request in Directory Service."
-					+ e.getMessage());
+			logger.warn("Error persisting new Family entity in Directory Service."
+					+ e.getMessage(),e);
 			return false;
 		}
 	}
@@ -122,7 +166,7 @@ public class DirectoryServiceImpl implements DirectoryService {
 	public boolean addMembers(HttpServletRequest request) {
 		try{
 		long familyId = Long.parseLong(request.getParameter("familyId"));
-		for(int i=1; i<=5 ; i++){
+		for(int i=0; i<=5 ; i++){
 			if(HTTPUtils.validateParameter(request, "m"+i+"FirstName")&&
 			   HTTPUtils.validateParameter(request, "m"+i+"LastName")){
 			Member member = new Member();
@@ -204,5 +248,11 @@ public class DirectoryServiceImpl implements DirectoryService {
 		
 		
 		
+	}
+
+	@Override
+	public List<Member> searchMembers(String srchCriteria) {
+		return directoryhibernateDao.searchMembers(srchCriteria);
+		 
 	}
 }

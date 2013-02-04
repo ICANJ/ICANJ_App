@@ -51,7 +51,8 @@ public class Family implements Serializable{
 	@Column(name="FAMILY_TAGLINE", length = 200)
 	private String tagLine;
 	
-		
+	@Column(name="FAMILY_EMAIL_COMMUNICATION", length = 50, nullable =false)
+	private String emailAddress;	
 	
 	public String getTagLine() {
 		return tagLine;
@@ -91,6 +92,14 @@ public class Family implements Serializable{
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
     
    }

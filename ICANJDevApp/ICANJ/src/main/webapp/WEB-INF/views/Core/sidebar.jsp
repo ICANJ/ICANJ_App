@@ -25,15 +25,15 @@ for(GrantedAuthority authority: ls){
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
-              <li class="nav-header">My Tithing Info</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li class="nav-header">Tithe</li>
+              <li><a href="#">My Tithing Info</a></li>
+              <li><a href="#">Request a Check</a></li>
+              <li><a href="#">Submit Receipt</a></li>
               <%if(status) {%>
               <li class="nav-header">Admin</li>
               <li><a href="/Admin/Signup/Family">Family Signup</a></li>
               <li><a href="/Public/Register/">Register Accounts</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="/Tithe/Admin">Tithe Administration</a></li>
               <%} %>
             </ul>
           </div><!--/.well -->

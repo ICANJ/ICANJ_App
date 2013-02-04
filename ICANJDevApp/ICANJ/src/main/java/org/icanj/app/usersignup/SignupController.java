@@ -64,6 +64,9 @@ public class SignupController {
 							family = directoryServiceImpl.getFamilyHomePhoneNo(homePhone);
 							responeUrl = sucessUrl;
 							modelMap.addAttribute("family", family);
+							modelMap.addAttribute("familyNameF", request.getParameter("familyNameF").trim());
+							modelMap.addAttribute("familyNameM", request.getParameter("familyNameM").trim());
+							modelMap.addAttribute("familyNameL", request.getParameter("familyNameL").trim());
 							modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_SUCESS, "Family was succesfully added to the directory"));
 						}
 						else{
@@ -101,7 +104,7 @@ public class SignupController {
 		if(HTTPUtils.validateParameter(request, "familyId")){
 			directoryServiceImpl.addMembers(request);
 			message="The member information was added sucessfully!! ";
-			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_ERROR_CODE,AppConstant.CSS_ALERT_ERROR, message));
+			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_ERROR, message));
 			return new ModelAndView(successUrl, modelMap);
 		}else{
 			logger.error("Error Adding Members - Family Id cannot be null");
