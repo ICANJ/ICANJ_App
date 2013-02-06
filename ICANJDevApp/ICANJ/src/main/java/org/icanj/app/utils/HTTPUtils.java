@@ -44,4 +44,18 @@ public class HTTPUtils {
 			return false;
 		}
 	}
+	
+	public static boolean validateParameter(HttpServletRequest request,
+			String requestParam) {
+
+			try {
+				Boolean returnValue = false;
+				String value = request.getParameter(requestParam);
+				return returnValue = (value != null && !"".equals(value)) ? true : false;
+			} catch (Exception e) {
+				logger.error(requestParam + " is an Illegal Argument.");
+				return false;
+			}
+		}
+	
 }

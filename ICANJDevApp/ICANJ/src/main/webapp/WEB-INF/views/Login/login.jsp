@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
@@ -16,11 +17,11 @@
 	<body>
 
 		<div class="container">
-			<c:if test="${not empty alert}">
+			<c:if test="${not empty error}">
 				<div class="alert ${alert.cssAlertClass}" id="errorBox">
 					<button type="button" class="close" data-dismiss="alert">×</button>
 					<strong>Warning! :</strong>
-					${alert.message}
+					${error}
 				</div>
 			</c:if>
 			<form class="form-signin" action="j_spring_security_check"

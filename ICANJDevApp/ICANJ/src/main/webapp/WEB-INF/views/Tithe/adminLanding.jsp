@@ -67,7 +67,7 @@
 
 
 				<!-- Modal  Start -->
-				<form action="AddTithe" method="post">
+				<form action="/Admin/Tithe/AddTithe" method="post">
 				<div id="titheModal" class="modal hide fade">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
@@ -132,8 +132,8 @@
 
 					</div>
 					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button class="btn btn-primary">Save changes</button>
+						
 					</div>
 				</div>
 				</form>

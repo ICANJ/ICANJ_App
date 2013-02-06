@@ -57,6 +57,10 @@ public class TithingService {
 		
 	}
 	
+	public void deleteTransaction (long transactId){
+		tithingDAO.deleteTransaction(transactId);
+	}
+	
 	
 	@Secured("ROLE_ADMIN")
 	public void addTithingTransaction(HttpServletRequest request, String principal) {

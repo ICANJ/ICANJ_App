@@ -49,7 +49,7 @@
 							<div class="modal-footer">
 			<button type="submit" class="btn">Next</button>
 			<a href="/" type="button" class="btn btn-primary">Login</a>
-					<a href="/ICANJ/" type="button" class="btn btn-primary pull-left">Go Back to Login</a>
+					<a href="/" type="button" class="btn btn-primary pull-left">Go Back to Login</a>
 				</div>
 			</div>
 		</form>

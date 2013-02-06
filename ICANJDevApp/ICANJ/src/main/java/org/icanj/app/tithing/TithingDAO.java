@@ -40,5 +40,16 @@ public class TithingDAO {
 		}
 		
 	}
+	
+	public void deleteTransaction (long transactId){
+		Tithe t =null;
+		try {
+			t = getTitheByTransactId(transactId);
+			hibernateTemplate.delete(t);
+		} catch (DataAccessException e) {
+			logger.error("Error deleting transaction : transaction Id" + t.getTransactionId()+ "  "+ e);
+			e.printStackTrace();
+		}
+	}
 
 }

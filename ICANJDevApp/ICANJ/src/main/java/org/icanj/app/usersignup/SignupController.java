@@ -119,7 +119,7 @@ public class SignupController {
 		if(HTTPUtils.validateParameter(request, "familyId", 2)){
 			directoryServiceImpl.addMembers(request);
 			message="The member information was added sucessfully!! ";
-			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_ERROR, message));
+			modelMap.addAttribute("alert", new JSPAlert(AppConstant.MSG_SUCCESS_CODE,AppConstant.CSS_ALERT_SUCESS, message));
 			return new ModelAndView(successUrl, modelMap);
 		}else{
 			logger.error("Error Adding Members - Family Id cannot be null");

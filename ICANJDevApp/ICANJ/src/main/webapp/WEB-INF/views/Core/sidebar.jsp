@@ -33,7 +33,7 @@
               <li class="nav-header">Admin</li>
               <li><a href="/Admin/Signup/Family">Family Signup</a></li>
               <li><a href="/Public/Register/">Register Accounts</a></li>
-              <li><a href="/Tithe/Admin">Tithe Administration</a></li>
+              <li><a href="/Admin/Tithe/Admin">Tithe Administration</a></li>
               <%} %>
             </ul>
           </div><!--/.well -->

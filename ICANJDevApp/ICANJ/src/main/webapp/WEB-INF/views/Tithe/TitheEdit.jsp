@@ -5,7 +5,6 @@
 <jsp:include page="/WEB-INF/views/Core/header.jsp">
 	<jsp:param name="name" value="sos" />
 </jsp:include>
-
 </head>
 
 <body>
@@ -24,7 +23,7 @@
 
 
 				<!-- Modal  Start -->
-				<form action="/Tithe/AddTithe" method="post">
+				<form action="/Admin/Tithe/AddTithe" method="post">
 					
 						<h3>Edit/Delete Transaction</h3>
 					
@@ -99,8 +98,8 @@
 						</div>
 
 					<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 						<button class="btn btn-primary">Save changes</button>
+						<a href="/Admin/Tithe/Delete/${tithe.transactionId}" type="button"class="btn btn-danger">Delete Transaction</a>
 					</div>
 					
 					

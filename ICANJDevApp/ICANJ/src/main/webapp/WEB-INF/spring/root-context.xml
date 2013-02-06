@@ -27,10 +27,10 @@
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 	destroy-method="close" 
-	p:driverClassName="${jdbc.driverClassName.mochahost.dev}"
-	p:url="${jdbc.databaseurl.mochahost.dev}"
-	p:username="${jdbc.username.mochahost.dev}"
-	p:password="${jdbc.password.mochahost.dev}" />
+	p:driverClassName="${jdbc.driverClassName.localhost.dev}"
+	p:url="${jdbc.databaseurl.localhost.dev}"
+	p:username="${jdbc.username.localhost.dev}"
+	p:password="${jdbc.password.localhost.dev}" />
 	
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -38,7 +38,7 @@
 	<property name="packagesToScan" value="org.icanj.app" />
 	<property name="hibernateProperties">
 	<props>
-			<prop key="hibernate.dialect">${jdbc.dialect.mochahost.dev}</prop>
+			<prop key="hibernate.dialect">${jdbc.dialect.localhost.dev}</prop>
 			<prop key="hibernate.show_sql">false</prop>
 			<prop key="hibernate.hbm2ddl.auto">update</prop>
 	</props>

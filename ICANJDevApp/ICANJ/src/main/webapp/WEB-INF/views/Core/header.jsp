@@ -15,6 +15,7 @@
 <link href="/resources/css/docs.css" rel="stylesheet" media="screen">
 <link href="/resources/css/icanj.css" rel="stylesheet" media="screen">
 <link href="/resources/css/mobile.css" rel="stylesheet" media="screen">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <style type="text/css">
       body {
         padding-top: 60px;

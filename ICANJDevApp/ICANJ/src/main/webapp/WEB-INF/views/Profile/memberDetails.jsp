@@ -16,14 +16,14 @@
 	</head>
 
 	<body>
-		<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-			<jsp:param name="name" value="sos" />
-		</jsp:include>
+		<div class="container-fluid">
+      <div class="row-fluid">
+  <jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
 
-		<div class="container-fluid page">
-			<div class="row-fluid">
 
-				<div class="span9">
+        <div class="span9">
 					<c:if test="${not empty alert}">
 						<div class="alert ${alert.cssAlertClass}" id="errorBox">
 							<button type="button" class="close" data-dismiss="alert">×</button>

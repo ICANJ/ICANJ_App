@@ -21,14 +21,14 @@
 
 	<body>
 
-		<jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
-			<jsp:param name="name" value="sos" />
-		</jsp:include>
+		<div class="container-fluid">
+      <div class="row-fluid">
+  <jsp:include page="/WEB-INF/views/Core/sidebar.jsp">
+		<jsp:param name="name" value="sos" />
+	</jsp:include>
 
-		<div class="container-fluid page">
-			<div class="row-fluid">
 
-				<div class="span9">
+        <div class="span9">
 					<h3>My Family Profile</h3>
 					<c:if test="${not empty alert}">
 						<div class="alert ${alert.cssAlertClass}" id="errorBox">
@@ -38,7 +38,7 @@
 						</div>
 					</c:if>
 
-					<form action="UpdateFamily" method="post">
+					
 						<div class="hero-unit familyName pull-left">
 							<input type="hidden" id="formPostType" name="formPostType" value="">
 							<h2>${family.familyName} & Family</h2>
@@ -53,7 +53,7 @@
 							<a href="#addressModal" role="button"
 								 data-toggle="modal">Click to Edit Address</a>
 						</div>
-					</form>
+				
 
 					<form action="GetMemberProfile" method="post">
 						<input type="hidden" id="memberId" name="memberId">
@@ -86,6 +86,8 @@
 
 					<!-- Address Modal Start -->
 					<div id="addressModal" class="modal hide fade">
+					<form action="UpdateFamily" method="post">
+					<input type="hidden" id="familyId" name="familyId" value="${family.familyId}">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
 											aria-hidden="true">&times;</button>
@@ -163,6 +165,7 @@
 							<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 							<button class="btn btn-primary">Save changes</button>
 						</div>
+							</form>
 					</div>
 					<!-- Address Modal End -->
 
